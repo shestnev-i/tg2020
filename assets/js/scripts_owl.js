@@ -41,6 +41,9 @@ $(window).resize(function(){
 })
 
 
+
+
+
 //catalog start
 $('.menuLine-catalogButton').click(function() {
         if ($('.catalog').is(':hidden')) {
@@ -62,6 +65,27 @@ $('.overlay').click(function() {
             $('.overlay').fadeOut();
 })
 //catalog end
+//catalog start
+    /*$('.catalog_category-link:first').addClass('active');
+
+    
+        $('.catalog_overlay').click(function() {
+        $(this).fadeOut('fast');
+        $('.catalog').slideUp('fast');
+        $('.menuLine-catalogButton_icon').removeClass('close');
+        $('.menuLine-catalogButton').removeClass('active');
+        $('.header-ui_auth-popup').slideUp('fast');
+        $('.header-ui_minicart-popup').slideUp('fast');
+    });
+
+    $('.catalog_category-link').hover(function() {
+        $(this).addClass('active');
+        $('.catalog_category-link').not(this).removeClass('active');
+        var resid = $(this).attr('res');
+        $('#' + resid).css('display', 'flex');
+        $('.catalog_section > ul').not('#' + resid).css('display', 'none');
+    });*/
+//catalog end
 
 //carousel start
 $('.mainBanner_slider').slick({
@@ -69,27 +93,22 @@ $('.mainBanner_slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,
-    dots: false,
-    arrows: false,
-    fade: true,
-    cssEase: 'linear',
-    lazyLoad: 'ondemand',
-    autoplay: true,
-    autoplaySpeed: 2000
+    dots: false
 });
-$('.contactPage_block.gallery').slick({
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: true,
-    dots: false,
-    arrows: false,
-    fade: true,
-    cssEase: 'linear',
-    lazyLoad: 'ondemand',
-    autoplay: true,
-    autoplaySpeed: 2000
-});
+/*
+$('.mainBanner_slider').owlCarousel({
+            loop: true,
+            nav: false,
+            lazyLoad: true,
+            autoplay: true,
+            autoplayTimeout: 5500,
+            smartSpeed: 1000,
+            autoplayHoverPause: true,
+            dots: true,
+            responsiveClass: true,
+            items: 1
+        });
+
     var sliders = $('.carousel-products');
     var loop;
     $.each(sliders, function(){
@@ -101,50 +120,58 @@ $('.contactPage_block.gallery').slick({
             loop: loop,
             margin: 5,
             nav: false,
-            dots: false,
             lazyLoad: true,
             autoplay: true,
-            autoplayTimeout: 5000,
-            responsive: {
-                0:{
-                    items:1
+            autoplayTimeout: 5500,
+            smartSpeed: 1000,
+            autoplayHoverPause: true,
+            dots: false,
+            responsiveClass: true,
+            responsive : {
+                0 : {
+                    items: 1
                 },
-                420:{
-                    items:2
+                813 : {
+                    items: 4
                 },
-                800:{
-                    items:3
+                1025 : {
+                    items: 5
                 },
-                1000:{
-                    items:5
-                },
-                1366:{
-                    items:6
+                1370 :{
+                    items: 6
                 }
             }
-        })
+        });
     })
 
 var tagline = {
-    loop: true,
-    nav: false,
-    dots: false,
+    loop: loop,
     margin: 5,
+    nav: false,
+    lazyLoad: true,
     autoplay: true,
     autoplayTimeout: 5000,
-    responsive:{
-        0:{
-            items:1
+    smartSpeed: 1000,
+    autoplayHoverPause: true,
+    dots: false,
+    responsiveClass: true,
+    responsive : {
+        0 : {
+            items: 2
         },
-        800:{
-            items:4
+        812 : {
+            items: 3
         },
-        1366:{
-            items:5
+        1024 : {
+            items: 4
+        },
+        1367 :{
+            items: 5
         }
-    }
+    } 
 }
-$('.tagline-block').owlCarousel(tagline);
+*/
+//$('.tagline-block').owlCarousel(tagline);
 //carousel control
     $('.mainBanner_ctrl.prev').on('click',function(){
         $('.mainBanner_slider').slick('slickPrev');
@@ -155,10 +182,10 @@ $('.tagline-block').owlCarousel(tagline);
 
 
     $('.navbar-ctrl_prev').on('click',function(){
-        $(this).closest('.navbar').next('.carousel-products').trigger('prev.owl.carousel');
+        $(this).closest('.navbar').next('.carousel-products').trigger("prev.owl.carousel");
     })
     $('.navbar-ctrl_next').on('click',function(){
-        $(this).closest('.navbar').next('.carousel-products').trigger('next.owl.carousel');
+        $(this).closest('.navbar').next('.carousel-products').trigger("next.owl.carousel");
     })
 
      $('.tagline_btn').on('click',function(){
@@ -183,12 +210,8 @@ $('.tagline-block').owlCarousel(tagline);
         } else {
             $('.totop').fadeOut();
         }
-        /*if ($(this).scrollTop() > 150 && $('footer').offset().top > 1500){
-            $('.comparePage_head').addClass('scroll');
-        } else {
-            $('.comparePage_head').removeClass('scroll');
-        }*/
     });
+    
     $('.totop').click(function () {
         $('body,html').animate({
             scrollTop: 0
@@ -272,43 +295,29 @@ $('.btn_hide').on('click',function(){
                     }
                 }
             });
-            $('.contactPage_block.gallery').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                closeOnContentClick: false,
-                closeBtnInside: false,
-                removalDelay: 300,
-                image: {
-                    verticalFit: true,
-                },
-                gallery: {
-                    enabled: true,
-                    tCounter: '<span class="mfp-counter">%curr% из %total%</span>'
-                },
-                zoom: {
-                    enabled: true,
-                    duration: 300, // don't foget to change the duration also in CSS
-                    opener: function(element) {
-                        return element.find('img');
-                    }
-                }
-            });
         };
     //Gallery end
 //productPage end
 
 // Блок "Количество" - start
-$('.btn_range.minus').on('click', function(){
-    var range = $(this).next(); 
-    if(range.val() > 1){
-        range.val(+range.val() - 1);  
-    }
-})
-$('.btn_range.plus').on('click', function(){
-    var range = $(this).prev();
-    range.val(+range.val() + 1);
-})
+function quantityProducts() {
+    var $quantityArrowMinus = $(".btn_range.minus");
+    var $quantityArrowPlus = $(".btn_range.plus");
+    var $quantityNum = $(".productPage-buyblock_range");
 
+    $quantityArrowMinus.click(quantityMinus);
+    $quantityArrowPlus.click(quantityPlus);
+
+    function quantityMinus() {
+        if ($quantityNum.val() > 1) {
+            $quantityNum.val(+$quantityNum.val() - 1);
+        }
+    }
+
+    function quantityPlus() {
+        $quantityNum.val(+$quantityNum.val() + 1);
+    }
+};
 // Блок "Количество" - end
 
 //tabs start   
@@ -333,82 +342,5 @@ if ($(".productPage_tabs")) {
             $('.productPage_tabs_tab').not('#' + tabid).hide();
         });
     }
-    var filterRange = $('.prodcat_filter_slider');
-    $.each(filterRange, function(){
-        var rangeMin = $(this).find('input[filter-range="min"]').attr('value');
-        var rangeMax = $(this).find('input[filter-range="max"]').attr('value');
-        $(this).find('.prodcat_filter_slider_range').slider({
-              range: true,
-              min: + rangeMin,
-              max: + rangeMax,
-              values: [ rangeMin, rangeMax ],
-              slide: function( event, ui ) {
-                $(this).parent().find('input[filter-range="min"]').val( ui.values[ 0 ] );
-                $(this).parent().find('input[filter-range="max"]').val( ui.values[ 1 ] );
-              }
-            });
-            
-            $('input[filter-range="min"]').on('change',function(){
-                var thval = $(this).val();
-                var rmin;
-                if (parseInt(thval) < parseInt(rangeMin)) { rmin = 0; }
-                else if (parseInt(thval) > parseInt(rangeMax)) { rmin = rangeMax; }
-                else { rmin = thval; };
-                $(this).closest('.prodcat_filter_slider').find('.prodcat_filter_slider_range').slider("values", 0, rmin);
-                $(this).val(rmin);
-            });
-
-            $('input[filter-range="max"]').on('change',function(){
-                var thval = $(this).val();
-                var rmax;
-                if (parseInt(thval) > parseInt(rangeMax)) { rmax = rangeMax; }
-                else if (parseInt(thval) < parseInt(rangeMin)) { rmax = rangeMin; }
-                else { rmax = thval; };
-                $(this).closest('.prodcat_filter_slider').find('.prodcat_filter_slider_range').slider("values", 1, rmax);
-                $(this).val(rmax);
-            });
-
-        });
-
-    $('.prodcat_filter_top').on('click', function(){
-        $(this).next().slideToggle();
-        $(this).find('.prodcat_filter_ancer').toggleClass('close');
-    })
-//compare start
-
-$('.comparePage_head_btns').find('.prev').on('click',function(){
-    var item = Math.ceil($('.comparePage_item').width());
-    var pos = $('.comparePage_row').css("left").replace('px', '');
-    $('.comparePage_row').animate({left: "+=" + item},500, "linear"); 
-})
-$('.comparePage_head_btns').find('.next').on('click',function(){
-    var item = $('.comparePage_item').width();
-    $('.comparePage_row').animate({left: "-=" + item},500, "linear");
-})
-if($('.comparePage_row').width() > $('.wrap').width()){
-        $('.comparePage').addClass('slider');
-        $('.comparePage_head_btns').fadeIn().css('display','flex');
-    }
-else{
-        $('.comparePage').removeClass('slider');
-        $('.comparePage_head_btns').fadeOut();
-    }
-
-//compare end
-
-
-//reviewTabs
-
-    $('.reviewPage_control_item').on('click',function(){
-        if($(this).hasClass('active') === false){
-            $(this).addClass('active');
-            $('.reviewPage_control_item').not(this).removeClass('active');
-            $('.reviewPage_list_block[reviewId="'+$(this).attr('reviewId')+'"]').addClass('active');
-            $('.reviewPage_list_block[reviewId="'+$('.reviewPage_control_item').not(this).attr('reviewId')+'"]').removeClass('active');
-        }
-    })
-
-//reviewTabs end
-
 
 });
