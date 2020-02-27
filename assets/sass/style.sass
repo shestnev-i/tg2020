@@ -1,0 +1,2372 @@
+$blue: #009FE4
+$lgreen: #A8C828
+$green: #59B400
+$orange: #ff3300
+$yellow: #ffdd33
+$black: #222
+$dark: #444
+$gray: #bbb
+$lgray: #ddd
+$white: #fff
+$border: 1px solid $lgray
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Play:400,700')
+
+*
+	box-sizing: border-box
+
+html
+	font-size: 10px
+	font-family: 'Montserrat', sans-serif
+	font-weight: 500
+
+body
+	margin: 0
+	padding: 0
+	background: url("../img/bg_layer.png") darken($white,6)
+	background-size: contain
+	font-size: 14px
+	color: $dark
+	display: none
+
+a:active, a:focus, input, textarea, textarea:active, input:active, input:focus, button:active, button:focus, img, select
+	outline: none
+
+a
+	color: $blue
+	text-decoration: none
+	transition: .5s
+	&:hover
+		text-decoration: underline
+
+button::-moz-focus-inner
+	border: 0
+
+h1,h2,h3,h4,h5,h6
+	margin: 0
+	padding: 0
+
+img
+	max-width: 100%
+	height: auto
+
+input:-webkit-autofill
+	-webkit-animation-name: autofill
+	-webkit-animation-fill-mode: both
+
+input
+	&::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+		-webkit-appearance: none
+		margin: 0
+header
+	flex-wrap: wrap
+	background: $white
+
+main
+	position: relative
+
+section
+	margin-top: 1rem
+	margin-bottom: 1rem
+	flex-wrap: wrap
+
+.wrap-full
+	display: flex
+	width: 100%
+	margin: 0 auto
+	padding: 0
+
+.wrap
+	display: flex
+	width: 100%
+	max-width: 1560px
+	margin-right: auto
+	margin-left: auto
+	position: relative
+
+.infoline
+	display: flex
+	flex-basis: 100%
+	justify-content: center
+	padding: 1rem
+	text-decoration: none
+	text-transform: uppercase
+	font-weight: bold
+	color: $orange
+	background: url(../img/bricks.jpg)
+	background-size: cover
+
+.header
+	padding: 1rem 0
+	align-items: center
+	border-top: $border
+	border-bottom: $border
+	margin: 1rem auto
+	&-block
+		display: flex
+		padding: 1rem
+		flex-basis: 16.6666%
+		.icon
+			flex-basis: 40px
+			margin-right: 1rem
+		&_info
+			display: flex
+			justify-content: center
+			flex-wrap: wrap
+			text-align: center
+			position: relative
+			strong
+				font-size: 1.3rem
+				flex-basis: 100%
+
+			span
+				font-size: 12px
+				flex-basis: 100%
+			a
+				position: absolute
+				width: 100%
+				height: 100%
+				color: $green
+				text-decoration: none
+			&:hover strong
+				color: $green
+	&-search
+		flex-basis: 25%
+		form
+			flex-basis: 100%
+			display: flex
+			justify-content: space-between
+			border: $border
+			input
+				border: 0
+				height: 40px
+				padding: 1rem
+				width: 100%
+	&-panel
+		display: flex
+		flex-basis: 25%
+		&_btn
+			display: flex
+			flex-basis: 25%
+			justify-content: center
+			flex-wrap: wrap
+			position: relative
+			.icon
+				flex-basis: 100%
+			p
+				margin: .5rem 0
+			a
+				position: absolute
+				width: 100%
+				height: 100%
+			span
+				position: absolute
+				width: 30px
+				height: 30px
+				right: 10px
+				border: 2px solid $green
+				border-radius: 50%
+				background: $white
+				display: flex
+				align-items: center
+				justify-content: center
+			&:hover
+				p
+					color: $green
+				path
+					fill: $green
+	svg.icon
+		max-width: 100%
+		height: auto
+		max-height: 30px
+.line-dark
+	flex-basis: 100%
+	background: $dark
+.menuLine
+	display: flex
+	align-items: center
+	position: relative
+	z-index: 9
+	height: 100%
+	&-catalogButton
+		color: $white
+		text-decoration: none
+		padding: .5rem 1rem
+		font-weight: bold
+		flex-basis: 20%
+		background: lighten($dark,10)
+		display: flex
+		align-items: center
+		transition: .5s
+		&:hover, &.active
+			background: $orange
+			cursor: pointer
+		&_icon
+			width: 20px
+			height: 3px
+			border-radius: 1px
+			margin-right: 1rem
+			background: $white
+			display: block
+			position: relative
+			transition: .5s
+			&::before
+				content: ''
+				width: 20px
+				height: 3px
+				border-radius: 1px
+				position: absolute
+				background: $white
+				top: 7px
+				transition: .5s
+			&::after
+				content: ''
+				width: 20px
+				height: 3px
+				border-radius: 1px
+				position: absolute
+				background: $white
+				bottom: 7px
+				transition: .5s
+			&.close
+				background-color: transparent
+				&::before
+					transform: rotate(-45deg)
+					transform-origin: left
+				&::after
+					transform: rotate(45deg)
+					transform-origin: left
+	&-stockButton
+		display: flex
+		font-weight: bold
+		list-style: none
+		color: $white
+		text-decoration: none
+		padding: 0 1.5rem
+		align-items: center
+		background: $blue
+		height: 100%
+		transition: .5s
+		flex-basis: 10%
+		justify-content: center
+		&:hover
+			background: darken($blue,5)
+	&-menu
+		display: flex
+		list-style: none
+		flex-basis: 70%
+		height: 100%
+		padding: 0
+		margin: 0
+		a
+			display: flex
+			font-weight: bold
+			list-style: none
+			color: $white
+			text-decoration: none
+			padding: 0 1.5rem
+			align-items: center
+			justify-content: center
+			margin: 0
+			transition: .5s
+			height: 100%
+			&:hover
+				background: $orange
+		&_more
+			color: $white
+			display: none
+		&_sub
+			display: flex
+			list-style: none
+			height: 100%
+			padding: 0
+//catalog start
+.catalog
+	z-index: 9
+	background: $white
+	display: none
+	position: absolute
+	top: 55px
+	box-shadow: 5px 5px 1rem $gray
+	&-panel
+		position: relative
+		width: 20%
+		display: block
+		&-list
+			list-style: none
+			padding: 0
+			margin: 0
+			&_item
+				display: flex
+				flex-wrap: wrap
+				height: 70px
+				&:hover
+					background: lighten($lgray,5)
+					.catalog-panel-list_item_block
+						opacity: 1
+						z-index: 10
+				&:first-child .catalog-panel-list_item_block
+					opacity: 1
+				&_link
+					display: flex
+					align-items: center
+					padding: 1rem
+					text-decoration: none
+					color: $dark
+					font-weight: bold
+					&:hover
+						color: $blue
+					img, svg
+						max-width: 40px
+						max-height: 40px
+					span
+						padding-left: 1rem
+				&_block
+					width: calc(1560px - 310px)
+					position: absolute
+					opacity: 0
+					top: 0
+					left: 100%
+					height: 100%
+					display: flex
+					flex-wrap: wrap
+					background: $white
+					z-index: 5
+					align-content: space-between
+					border: $border
+					&:first-child
+						z-index: 9
+					&_main
+						display: flex
+						padding: 1rem
+						width: 100%
+						&_menu
+							flex-basis: 80%
+							&_title
+								display: block
+								font-size: 24px
+								padding-bottom: 1rem
+								border-bottom: $border
+								text-decoration: none
+
+							&_categs
+								padding-top: 1rem
+								height: 100%
+								column-count: 3
+								&_el
+									padding: 1rem
+									//width: 33.33%
+									display: block
+									//float: left
+									break-inside: avoid
+									&_title
+										font-weight: bold
+									a
+										text-decoration: none
+										color: $dark
+										&:hover
+											color: $blue
+									ul
+										list-style: none
+										margin: 0
+										padding: 0 0 0 1rem
+						&_baner
+							flex-basis: 20%
+							padding: 0 1rem 1rem
+							&_title
+								display: block
+								font-size: 24px
+								padding-bottom: 1rem
+								text-decoration: none
+								border-bottom: $border
+							img
+								padding-top: 1rem
+					&_brands
+						display: flex
+						flex-wrap: wrap
+						align-items: center
+						flex-basis: 100%
+						&_title
+							flex-basis: 100%
+							margin: 1rem
+							padding-bottom: 1rem
+							font-size: 24px
+							border-bottom: $border
+						&_link
+							flex-basis: 10%
+							margin: 1rem
+							border: $border
+							display: flex
+							align-items: center
+							justify-content: center
+							padding: 1rem
+							height: 60px
+//catalog end
+
+.breadcrumbs
+	margin-top: 1rem
+	margin-bottom: 0
+	display: flex
+	padding: 1rem
+	color: $dark
+	background: $white
+	border: $border
+	width: 100%
+	font-size: 14px
+
+	a
+		color: $dark
+		text-decoration: none
+		font-size: 14px
+
+		&:hover
+			text-decoration: underline
+
+	.active
+		color: $dark
+		font-weight: bold
+
+	li
+		list-style: none
+		padding: 0 1rem
+
+	.separator
+		font-weight: bold
+
+
+.mainBanner
+	flex-basis: 75%
+	position: relative
+	overflow: hidden
+	max-height: 380px
+	&_slider
+		&_mobile
+			display: none !important
+	&_ctrl
+		position: absolute
+		height: 100%
+		top: 0
+		display: flex
+		align-items: center
+		width: 40px
+		justify-content: center
+		transition: .5s
+		background: rgba($white,.5)
+		z-index: 2
+		&.prev
+			left: -40px
+		&.next
+			right: -40px
+		&.prev, &.next
+			&:hover
+				cursor: pointer
+				svg path
+					fill: $orange
+	&:hover &_ctrl.prev
+		left: 0
+	&:hover &_ctrl.next
+		right: 0
+	.owl
+		&-dots
+			position: absolute
+			bottom: 0
+			height: 40px
+			width: 100%
+			z-index: 43
+			display: flex
+			justify-content: center
+			align-items: center
+		&-dot
+			width: 15px
+			height: 15px
+			background: $white !important
+			transition: .5s
+			margin: .5rem
+			&.active
+				transform: rotate(45deg)
+				background: $orange !important
+
+
+
+
+.billboard
+	flex-basis: calc(25% - 1rem)
+	margin-left: 1rem
+
+.categories
+	display: flex
+	justify-content: space-between
+	&-item
+		flex-basis: calc(10% - 1rem)
+		display: flex
+		flex-wrap: wrap
+		text-align: center
+		justify-content: center
+		border: $border
+		margin: 0 .5rem
+		background: $white
+		padding: 1rem
+		transition: .5s
+		&:first-child
+			margin-left: 0
+		&:last-child
+			margin-right: 0
+		&_icon
+			display: flex
+			justify-content: center
+			align-items: center
+			flex-basis: 100%
+			height: 90px
+		&_title
+			display: flex
+			flex-basis: 100%
+			justify-content: center
+			align-items: center
+			height: 50px
+			margin-top: 1rem
+			font-weight: bold
+		&:hover
+			transform: scale(1.1)
+			box-shadow: 0 0 1rem rgba($dark,.5)
+			color: $orange
+			cursor: pointer
+		&:hover &_icon path
+			fill: $orange
+
+.navbar
+	display: flex
+	flex-basis: 100%
+	margin: 2rem auto
+	justify-content: space-between
+	align-items: center
+	&_title
+		font-size: 36px
+		position: relative
+		border-left: 5px solid $orange
+		padding-left: 1rem
+		font-weight: 500
+	&-ctrl
+		display: flex
+		&_prev, &_next
+			display: flex
+			align-items: center
+			justify-content: center
+			width: 50px
+			height: 50px
+			border: $border
+			background: $white
+			&:hover
+				cursor: pointer
+				path
+					fill: $orange
+		&_next
+			margin-left: 1rem
+
+.mainTitle
+	font-size: 36px
+	position: relative
+	border-left: 5px solid $orange
+	padding-left: 1rem
+	font-weight: 500
+	flex-basis: 100%
+	margin-bottom: 2rem
+
+.productPage
+	display: flex
+	flex-wrap: wrap
+	flex-basis: 100%
+	width: 100%
+	justify-content: space-between
+	&_gallery
+		flex-basis: calc(50% - 1rem)
+		max-width: calc(50% - 1rem)
+		display: flex
+		&_thumbs
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-basis: 20%
+			background: $white
+			border: $border
+			padding: 1rem
+			margin-right: 1rem
+			img
+				-webkit-filter: grayscale(100%)
+				filter: grayscale(100%)
+				margin: 1rem 0
+			.slick-center
+				-webkit-filter: grayscale(0%)
+				filter: grayscale(0%)
+		&_slider
+			display: flex
+			background: $white
+			margin-left: 1rem
+			flex-wrap: wrap
+			width: 80%
+			position: relative
+			justify-content: center
+			padding: 1rem
+			margin: 0 !important
+			border: $border
+			a
+				max-width: 100% !important
+				display: flex !important
+				align-items: center
+				justify-content: center
+				img
+					max-width: 100%
+			.slick-track
+				height: 100%
+	&-buyblock
+		flex-basis: 100%
+		&_range
+			width: 40px
+			display: flex
+			align-items: center
+			text-align: center
+	&_info
+		flex-basis: 50%
+		display: flex
+		justify-content: space-between
+		&_block
+			flex-basis: calc(50% - .5rem)
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			height: 100%
+		&_frame
+			background: $white
+			border: $border
+			margin-top: 1rem
+			display: flex
+			flex-wrap: wrap
+			align-items: center
+			height: 100%
+			padding: 1rem
+			&:first-child
+				margin: 0
+			.title
+				font-weight: bold
+		&_row
+			display: flex
+			justify-content: space-between
+			align-items: center
+			flex-basis: 100%
+			margin: 1rem 0
+			.title
+				font-weight: bold
+			&_info
+				display: flex
+				justify-content: flex-end
+				align-items: center
+				flex-wrap: wrap
+				*
+					flex-basis: 100%
+					text-align: right
+			&_small
+				display: flex
+				flex-basis: 50%
+				padding-right: 1rem
+	&_tabs
+		flex-basis: 100%
+		margin-top: 1rem
+		> ul
+			display: flex
+			margin: 0
+			padding: 0
+			> li
+				display: flex
+				list-style: none
+				background: $dark
+				margin-right: 1rem
+				overflow: hidden
+				height: 50px
+				min-width: 250px
+				padding: 0
+				&.ui-state-active
+					background: $orange
+					&:hover
+						background: $orange
+				a
+					width: 100%
+					padding: 1rem 2rem
+					color: $white
+					text-decoration: none
+					font-weight: bold
+					display: flex
+					align-items: center
+					justify-content: center
+					b
+						margin-left: 1rem
+				&:hover
+					background: $orange
+
+		&_tab
+			background: $white
+			padding: 1rem
+			border: $border
+			display: flex
+			flex-direction: column
+			min-height: 200px
+
+.product
+	display: flex !important
+	flex-wrap: wrap
+	background: $white
+	border: $border
+	margin: .5rem
+	transition: .5s
+	overflow: hidden
+	&:hover
+		box-shadow: 0 0 1rem $gray
+		.product_fastview
+			opacity: 1
+		.bookmarksPage_remove
+			opacity: 1
+	&-img
+		flex-basis: 100%
+		padding: 1rem
+		display: flex
+		justify-content: center
+		align-items: center
+		position: relative
+		width: 250px
+		height: 250px
+	&_gift
+		position: absolute
+		right: 1rem
+		bottom: 1rem
+	&_fastview
+		transition: .5s
+		position: absolute
+		right: 1rem
+		top: 1rem
+		opacity: 0
+	&-labels
+		display: flex
+		flex-basis: 100%
+		height: 30px
+		&_btn
+			flex-basis: 33.33%
+			display: flex
+			align-items: center
+			justify-content: center
+			padding: .5rem
+			color: $white
+			background: $lgray
+			font-weight: bold
+			&.sale
+				background: rgba($blue,0.6)
+			&.best
+				background: rgba($lgreen,0.6)
+			&.new
+				background: rgba($orange,0.6)
+	&-rating
+		display: flex
+		flex-basis: calc(60% - 1rem)
+		padding: 1rem
+		.rating
+			&:before
+				content: "("
+			&:after
+				content: ")"
+	&-sku
+		display: flex
+		flex-basis: 40%
+		padding: 1rem
+		align-items: center
+		justify-content: flex-end
+	&-title
+		padding: 1rem
+		height: 70px
+		a
+			color: $dark
+			text-decoration: none
+	&-price
+		display: flex
+		justify-content: space-between
+		padding: 1rem
+		border-top: $border
+		flex-basis: 100%
+		align-items: center
+		min-height: 60px
+		&_title
+			display: flex
+			align-items: center
+			flex-basis: 20%
+			font-weight: bold
+		&_pricing
+			flex-basis: 80%
+			display: flex
+			flex-wrap: wrap
+			*
+				flex-basis: 100%
+				text-align: right
+			&_new
+				font-size: 24px
+				//font-weight: bold
+			&_old
+				text-decoration: line-through
+				color: $orange
+	&-buyblock
+		padding: 1rem
+		display: flex
+		justify-content: space-between
+		flex-basis: 100%
+		flex-wrap: wrap
+		&_row
+			display: flex
+			flex-basis: 100%
+			justify-content: space-between
+			margin-bottom: 1rem
+	&-available
+		padding: 0rem 1rem 1rem
+		display: flex
+		align-items: center
+		&::before
+			content: ''
+			width: 10px
+			height: 10px
+			background: $green
+			border-radius: 50%
+			margin-right: 1rem
+			color: $green
+.stars
+	display: flex
+	.star
+		margin: 0 .1rem
+		path
+			fill: transparent
+			stroke: $lgreen
+		&.active path
+			fill: $lgreen
+			stroke: $lgreen
+
+.drawCategs
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	&-item
+		margin: .5rem
+		position: relative
+		transition: .5s
+		flex-basis: calc(16.66% - 1rem)
+		&_title
+			position: absolute
+			width: 100%
+			margin: 2rem 0
+			text-align: center
+			font-weight: bold
+			font-size: 18px
+			padding: 0 1rem
+		a
+			position: absolute
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+		&:hover
+			box-shadow: 0 0 1rem $gray
+		&_img
+			width: 100%
+			height: 100%
+
+.tagline
+	justify-content: space-between
+	flex-wrap: wrap
+	&-block
+		display: flex
+		//justify-content: space-between
+		flex-basis: 83.333%
+		width: 83.333%
+		flex-wrap: wrap
+		&_item
+			flex-basis: calc(20% - 1rem)
+			padding: 1rem
+			margin: .5rem
+			border: $border
+			text-decoration: none
+			display: flex !important
+			align-items: center
+			justify-content: center
+			color: $dark
+			font-weight: bold
+			transition: .5s
+			height: 60px
+			text-align: center
+			background: $white
+			&:hover
+				background: $lgreen
+		&.open
+			flex-basis: 100%
+			width: 100%
+			.tagline-block_item
+				flex-basis: calc(16.666% - 1rem)
+			~.tagline_btn
+				flex-basis: 100%
+				height: 40px
+
+	&_btn
+		padding: 1rem
+		flex-basis: calc(16.666% - 1rem)
+		margin: .5rem
+		text-align: center
+		background: $dark
+		color: $white
+		font-weight: bold
+		display: flex
+		align-items: center
+		justify-content: center
+		height: 60px
+		&:hover
+			cursor: pointer
+			background: $lgreen
+
+.vendorlink
+	flex-basis: calc(16.666% - 1rem)
+	display: flex !important
+	justify-content: center
+	align-items: center
+	margin: .5rem
+	padding: 1rem
+	height: 100px
+	border: $border
+	background: $gray
+	transition: .5s
+	img
+		filter: grayscale(100%)
+		transition: .5s
+	&:hover
+		background: $white
+		img
+			filter: grayscale(0%)
+
+.pagination
+	list-style: none
+	padding: 0
+	margin: 0
+	display: flex
+	justify-content: center
+	flex-basis: 100%
+	a
+		background: $white
+		border: $border
+		position: relative
+		min-width: 40px
+		height: 40px
+		margin: .5rem
+		padding: 0 1rem
+		display: flex
+		align-items: center
+		justify-content: center
+		text-decoration: none
+		color: $dark
+		&.active
+			background: $blue
+			color: $white
+			&:hover
+				background: $blue
+		&:hover
+			background: rgba($blue,.1)
+.sidebar
+	flex-basis: calc(16.666% - 1rem)
+	margin: 0 .5rem 0 0
+.mainside
+	flex-basis: calc(83.34% - 1rem)
+	margin: 0 0 0 .5rem
+.bookmarksPage
+	&_goods
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		.product
+			margin: 0 0 1rem
+			flex-basis: calc(20% - 1rem)
+	&_remove
+		position: absolute
+		left: 0
+		top: 0
+		padding: 1rem
+		transition: .5s
+		opacity: 0
+		transform-origin: center
+		a
+			display: flex
+			align-items: center
+			justify-content: center
+			width: 40px
+			height: 40px
+		&:hover
+			transform: rotate(180deg)
+			path
+				fill: $orange
+	&_info
+		background: $white
+		padding: 1rem
+		border: $border
+		margin-bottom: 1rem
+		&_title
+			font-size: 18px
+		&_price
+			font-weight: bold
+			color: $orange
+			font-size: 18px
+	&_btn
+		width: 100%
+		padding: 1rem
+		margin-bottom: 1rem
+		border: none
+		font-weight: bold
+		color: $white
+		cursor: pointer
+		&.buyAll
+			background: $green
+			&:hover
+				background: darken($green,10)
+		&.removeAll
+			background: $dark
+			&:hover
+				background: $orange
+
+
+.stockPage
+	flex-wrap: wrap
+	&_active, &_past
+		flex-basis: 100%
+		display: flex
+		flex-wrap: wrap
+	&_past
+		&_title
+			flex-basis: 100%
+			padding: 1rem 0
+			font-weight: bold
+			margin: 1rem 0
+			font-size: 18px
+		.stockPage_item img
+			filter: grayscale(1)
+			transition: .5s
+			&:hover
+				filter: grayscale(.5)
+	&_item
+		flex-basis: calc(16.66% - 1rem)
+		margin: .5rem
+		background: $white
+		padding: 1rem
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		text-align: center
+		&_img
+			padding: 1rem
+			border: $border
+		&_title
+			padding: 1rem 0
+
+
+.reviewPage
+	flex-wrap: wrap
+	&_control
+		background: $white
+		padding: 1rem
+		border: $border
+		&_item
+			display: flex
+			align-items: center
+			cursor: pointer
+			margin: 1rem 0
+			font-weight: bold
+			svg, img
+				margin-right: 1rem
+			path
+				fill: $dark
+		.active
+			color: $orange
+	&_list
+		border: $border
+		margin-top: 1rem
+		padding: 1rem
+		background: $white
+		&_block
+			display: none
+			list-style: none
+			padding: 0
+			margin: 0
+			li
+				margin: .5rem 0
+				a
+					color: $dark
+					&:hover
+						color: $blue
+		.active
+			display: block
+	&_item
+		display: flex
+		flex-wrap: wrap
+		background: $white
+		border: $border
+		margin-bottom: 1rem
+		&_head
+			background: $dark
+			display: flex
+			flex-basis: 100%
+			padding: 1rem
+			color: $white
+			justify-content: space-between
+			&_rating
+				flex-basis: 20%
+			&_title
+				flex-basis: 70%
+				border-left: $border
+				padding-left: 1rem
+			&_date
+				flex-basis: 10%
+		&_body
+			display: flex
+			flex-basis: 100%
+			&_img
+				flex-basis: 20%
+				display: flex
+				align-items: center
+				justify-content: center
+				padding: 1rem
+			&_container
+				flex-basis: 80%
+				display: flex
+				justify-content: space-between
+				flex-direction: column
+				&_message
+					padding: 1rem
+				&_user
+					border-top: $border
+					padding: 1rem
+					display: flex
+					align-items: center
+					.icon
+						margin-right: 1rem
+.faqPage
+	flex-wrap: wrap
+	&_list
+		border: $border
+		padding: 1rem
+		background: $white
+		&_title
+			font-weight: bold
+			border-bottom: $border
+			padding-bottom: 1rem
+		&_block
+			list-style: none
+			padding: 1rem 0 0 0
+			margin: 0
+			li
+				margin: .5rem 0
+				a
+					color: $dark
+					&:hover
+						color: $blue
+		.active
+			display: block
+	&_item
+		display: flex
+		flex-wrap: wrap
+		background: $white
+		border: $border
+		margin-bottom: 1rem
+		&_head
+			background: $dark
+			display: flex
+			flex-basis: 100%
+			padding: 1rem
+			color: $white
+			justify-content: space-between
+			&_date
+				flex-basis: 10%
+			&_title
+				flex-basis: 90%
+				border-left: $border
+				padding-left: 1rem
+				a
+					color: $white
+					font-weight: bold
+			
+		&_body
+			display: flex
+			flex-wrap: wrap
+			flex-basis: 100%
+			&_container
+				flex-basis: 100%
+				display: flex
+				justify-content: space-between
+				flex-direction: column
+				&_message
+					padding: 1rem
+				&_user
+					border-top: $border
+					padding: 1rem
+					display: flex
+					align-items: center
+					.icon
+						margin-right: 1rem
+				&.question
+					background: lighten($lgray,10)
+					border-bottom: $border
+				&.answer .icon path
+					fill: $orange
+.simplePage
+	&_menu
+		background: $white
+		padding: 1rem
+		margin: 0
+		list-style: none
+		border: $border
+		&_item
+			&.active
+				font-weight: bold
+			a
+				display: block
+				padding: 1rem
+	&_content
+		background: $white
+		padding: 1rem
+		border: $border
+.contactPage
+	display: flex
+	flex-wrap: wrap
+	&_row
+		display: flex
+		flex-wrap: wrap
+		border: $border
+		padding: 1rem
+		flex-basis: 100%
+		margin-bottom: 1rem
+		&:last-child
+			margin: 0
+	&_block
+		padding-right: 1rem
+		&_item
+			padding: 1rem
+		&_title
+			font-weight: bold
+			font-size: 18px
+			flex-basis: 100%
+			margin-bottom: 1rem
+		&.map
+			max-height: 300px
+			overflow: hidden
+			flex-basis: 70%
+		&.gallery
+			max-height: 300px
+			overflow: hidden
+			flex-basis: 30%
+			padding-left: 1rem
+			width: 100px
+.prodcat
+	&_top
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 1rem 0
+		height: 40px
+		&_block
+			flex-basis: 100%
+			display: flex
+			justify-content: space-between
+			&_sort
+				display: flex
+				align-items: center
+				flex-basis: 20%
+				justify-content: flex-end
+				b
+					flex-basis: 50%
+				select
+					margin-left: 1rem
+					background: none
+					border: none
+					color: $blue
+					font-weight: bold
+					-moz-appearance: none
+					-webkit-appearance: none
+					appearance: none
+					padding: 1rem
+					cursor: pointer
+	&_filter
+		background: $white
+		padding: 0 1rem 1rem
+		border: $border
+		&_top
+			display: flex
+			flex-basis: 100%
+			justify-content: space-between
+			align-items: center
+			height: 40px
+			border-bottom: $border
+			cursor: pointer
+			&:last-child
+				border: none
+		&_title
+			font-weight: bold
+			flex-basis: calc(100% - 40px)
+		&_ancer
+			flex-basis: 40px
+			height: 40px
+			display: flex
+			justify-content: center
+			align-items: center
+			transition: .5s
+			transform: rotate(-90deg)
+			&.close
+				transform: rotate(90deg)
+		fieldset
+			margin-top: 1rem
+			border: none
+			display: flex
+			width: 100%
+			flex-basis: 100%
+			border-bottom: $border
+			&:last-child
+				border: none
+		&_slider
+			padding: 1rem
+			&_range
+				height: 1rem
+				position: relative
+				border: $border
+				div
+					background: $orange
+					height: 100%
+					top: 0
+					position: absolute
+				span
+					background: $dark
+					width: 2rem
+					height: 2rem
+					position: absolute
+					z-index: 2
+					cursor: pointer
+					top: -0.5rem
+					margin-left: -1rem
+				&_block
+					display: flex
+					flex-basis: 100%
+					margin-top: 1rem
+					justify-content: space-between
+					label
+						display: flex
+						flex-basis: calc(50% - 1rem)
+						align-items: center
+						font-weight: bold
+						input
+							width: 100%
+							padding: 1rem
+							text-align: center
+							margin-left: 1rem
+							border: none
+		&_select
+			padding: 0
+			&_checkbox
+				display: flex
+				margin-bottom: .5rem
+				cursor: pointer
+				align-items: center
+				input
+					display: none
+					&:checked + .prodcat_filter_select_checkbox_block::before
+						content: url("../svg/checked.svg")
+						line-height: 1rem
+				&_block
+					width: 3rem
+					height: 3rem
+					border: $border
+					margin-right: 1rem
+					display: flex
+					justify-content: center
+					align-items: center
+				&_title
+					flex-basis: calc(100% - 3rem)
+	&_goods
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		.product
+			margin: 0 0 1rem
+			flex-basis: calc(20% - 1rem)
+
+.content
+	flex-wrap: wrap
+	.hidden
+		display: none
+
+.subline
+	background: url(../img/bricks.jpg)
+	background-size: cover
+	margin-top: 2rem
+.questions
+	background: $orange
+	padding: 2rem 1rem
+	color: $white
+	flex-basis: 25%
+	position: relative
+	&::before
+		content: ''
+		position: absolute
+		height: 100%
+		width: 100%
+		background: $orange
+		top: 0
+		left: -100%
+	&_title
+		font-weight: bold
+		font-size: 24px
+	&_caption
+		margin-bottom: 1rem
+	&_btn
+		border: none
+		padding: 1rem
+		width: 200px
+		background: $white
+		font-weight: bold
+		&:hover
+			cursor: pointer
+			background: $yellow
+.subscribe
+	display: flex
+	flex-basis: 75%
+	&-info
+		flex-basis: 33.333%
+		padding: 1rem
+		margin-left: 1rem
+		&_title
+			font-weight: bold
+			font-size: 24px
+		&_caption
+			margin-top: 1rem
+	&-form
+		flex-basis: 66.666%
+		display: flex
+		flex-wrap: wrap
+		padding: 1rem
+		align-items: center
+		input[type="text"]
+				flex-basis: 80%
+				height: 40px
+				padding: 0 1rem
+
+		button
+			flex-basis: calc(20% - 1rem)
+			margin-left: 1rem
+			height: 40px
+			background: $dark
+			color: $white
+			border: none
+			&:hover
+				cursor: pointer
+				background: $orange
+		span
+			flex-basis: 90%
+
+		input[type="checkbox"]:checked + label::before
+			content: url("../svg/checked.svg")
+			line-height: 1rem
+
+		#subscribe
+			display: none
+
+		label
+			flex-basis: 10%
+			cursor: default
+			font-weight: 400
+			line-height: 30px
+			padding: 10px 0
+			vertical-align: middle
+
+			&::before
+				content: " "
+				display: flex
+				align-items: center
+				justify-content: center
+				margin-right: 15px
+				position: relative
+				text-align: center
+				text-indent: 0px
+				width: 40px
+				height: 40px
+				background: $white
+				border: $border
+
+footer
+	margin-top: 1rem !important
+	background: $black
+.footer
+	flex-wrap: wrap
+	color: $white
+	&-block
+		flex-basis: 25%
+		padding: 1rem
+		&_title
+			font-weight: bold
+			border-bottom: $border
+			padding: 0 0 1rem
+		ul
+			margin: 1rem 0 0
+			padding: 0
+			list-style: none
+			li
+				margin: 0 0 1rem
+		a
+			color: $white
+			&:hover
+				color: $yellow
+	&-bottom
+		border-top: $border
+		padding: 1rem 0 0
+		display: flex
+		align-items: center
+		&_rights
+			flex-basis: 75%
+			padding-right: 2rem
+		&_social
+			display: flex
+			align-items: center
+			justify-content: space-between
+			flex-basis: 25%
+			a
+				padding: 1rem
+				&:hover path
+					fill: $yellow
+
+
+// Buttons start
+.btn
+	display: flex
+	justify-content: center
+	align-items: center
+	padding: 0
+	transition: .5s
+	height: 40px
+	border: none
+	background: $white
+	svg
+		max-width: 100%
+		height: auto
+	&-search
+		width: 40px
+		height: 40px
+		border: none
+		background: none
+	&-buy
+		background: rgba($green,.8)
+		padding: 1rem
+		color: $white
+		justify-content: space-evenly
+		flex-basis: 60%
+		font-weight: bold
+		border: none
+		&:hover
+			background: rgba($green,1)
+		.icon
+			margin-right: 1rem
+	&-bookmarks, &-compare
+		border: $border
+		width: 40px
+	&-bookmarks:hover
+		background: $yellow
+	&-compare:hover
+		background: $lgreen
+	&-oneclick
+		background: rgba($blue,.8)
+		border: none
+		padding: 0 1rem
+		color: $white
+		flex-basis: 100%
+		justify-content: flex-start
+		height: 40px
+		&:hover
+			background: rgba($blue,1)
+	&_range
+		width: 40px
+		border: $border
+	&_show
+		color: $green
+	&_hide
+		color: $orange
+	&_show, &_hide
+		font-weight: bold
+		&:hover
+			cursor: pointer
+	&_cheaper
+		padding: 1rem
+		border: none
+		background: $yellow
+		text-align: center
+		width: 100%
+		font-weight: bold
+		&:hover
+			cursor: pointer
+			background: darken($yellow, 10)
+	&_order
+		border: none
+		width: 100%
+		padding: 1rem
+		background: $orange
+		color: $white
+		font-weight: bold
+		cursor: pointer
+		transition: .5s
+		&:hover
+			background: lighten($orange,10)
+	&:hover
+		cursor: pointer
+	span
+		width: 100%
+		text-align: center
+	img
+		width: auto !important
+
+// Buttons end
+
+.totop
+	position: absolute
+	right: 1rem
+	bottom: 0
+	height: 100%
+	display: flex
+	justify-content: center
+	align-items: flex-end
+	&_btn
+		position: sticky
+		padding: 1rem
+		display: none
+		align-items: center
+		justify-content: center
+		background: $white
+		border: $border
+		font-weight: bold
+		width: 40px
+		height: 40px
+		margin: 1rem
+		right: 0
+		bottom: 1rem
+		z-index: 2
+		opacity: .5
+		*
+			transition: .5s
+		&:hover
+			cursor: pointer
+			opacity: 1
+			path
+				fill: $orange
+
+.popup
+	position: fixed
+	display: none
+	flex-wrap: wrap
+	justify-content: center
+	align-items: center
+	width: 100%
+	height: 100%
+	top: 0
+	left: 0
+	color: $dark
+	z-index: 20
+	&-header
+		display: flex
+		flex-basis: 100%
+		justify-content: space-between
+		margin-bottom: 1rem
+	&-window
+		display: flex
+		flex-basis: 100%
+		flex-wrap: wrap
+		max-width: 420px
+		background: $white
+		padding: 2rem
+		border: $border
+		justify-content: space-between
+		z-index: 2
+	&-fastview
+		display: flex
+		flex-basis: 100%
+		flex-wrap: wrap
+		max-width: 1200px
+		background: $white
+		padding: 2rem
+		border: $border
+		justify-content: space-between
+		z-index: 2
+	&-product
+		flex-basis: 100%
+		display: flex
+		&_img
+			flex-basis: 50%
+			display: flex
+			align-items: center
+			justify-content: center
+			padding: 1rem
+		&_info
+			flex-basis: 50%
+			padding: 1rem
+	&_title
+		flex-basis: 80%
+		font-size: 18px
+		font-weight: bold
+		padding-left: 1rem
+		border-left: 5px solid $orange
+	&_form
+		display: flex
+		flex-basis: 100%
+		flex-wrap: wrap
+		label
+			display: flex
+			flex-basis: 100%
+			margin-top: 1rem
+			flex-wrap: wrap
+			align-items: center
+			b
+				flex-basis: 25%
+			input
+				flex-basis: calc(75% - 1rem)
+				margin-left: 1rem
+				height: 40px
+				padding: 1rem
+			textarea
+				flex-basis: 100%
+				margin-top: 1rem
+
+	&_req
+		color: $orange
+	&_btn
+		flex-basis: 50%
+		margin: 2rem auto 0
+		padding: 1rem
+		text-align: center
+		border: none
+		background: $dark
+		color: $white
+		transition: .5s
+		font-weight: bold
+		&:hover
+			cursor: pointer
+			background: $green
+	&_close
+		transform-origin: center
+		display: flex
+		align-items: center
+		justify-content: center
+		transition: .5s
+		path
+			fill: $dark
+			transition: .5s
+		&:hover
+			cursor: pointer
+			transform: rotate(180deg)
+			path
+				fill: $orange
+	&_overlay
+		position: absolute
+		width: 100%
+		height: 100%
+		z-index: 1
+		background: rgba($black,.5)
+
+.orderPage
+	display: flex
+	flex-basis: 100%
+	&_row
+		display: flex
+		flex-wrap: wrap
+		background: $white
+		border: $border
+		padding: 1rem
+		margin-bottom: 1rem
+		&[client="legal"]
+			display: none
+	&_main
+		flex-basis: 70%
+		padding-right: 1rem
+		&_block
+			flex-basis: 100%
+			&_item
+				display: flex
+				flex-wrap: wrap
+				justify-content: space-between
+				margin-bottom: 1rem
+			input
+				&[type="text"]
+					margin-left: 1rem
+					padding: 1rem
+					width: 80%
+					border: $border
+			textarea
+				flex-basis: 100%
+				margin-top: 1rem
+				padding: 1rem
+				border: $border
+		&_title
+			display: flex
+			align-items: center
+			flex-basis: 100%
+			font-size: 24px
+			margin-bottom: 1rem
+			.icon
+				margin-right: 1rem
+				path
+					fill: $orange
+		&_control
+			display: flex
+			padding: 1rem
+			margin-right: 1rem
+			align-items: center
+			cursor: pointer
+			flex-basis: 100%
+			flex-wrap: wrap
+			label
+				display: flex
+				margin-right: 1rem
+				height: 100%
+				justify-content: space-between
+				flex-basis: 30%
+			input[type="radio"]
+					display: none
+					&:checked + .orderPage_main_control_radio::before
+						content: ""
+						position: absolute
+						width: 1.5rem
+						height: 1.5rem
+						border-radius: 50%
+						background: $orange
+
+			&_radio
+				display: flex
+				align-items: center
+				justify-content: center
+				width: 3rem
+				height: 3rem
+				border-radius: 50%
+				border: $border
+				margin-right: 1rem
+				transition: .5s
+				flex-basis: 3rem
+			&_caption
+				display: flex
+				flex-wrap: wrap
+				flex-basis: 90%
+				align-content: flex-start
+				&_title
+					font-weight: bold
+					margin-bottom: 1rem
+				*
+					flex-basis: 100%
+	&_side
+		flex-basis: 30%
+		position: sticky
+		top: 1rem
+		height: fit-content
+		padding: 1rem
+		background: $white
+		.line
+			justify-content: space-between
+.fxa
+	flex-basis: auto
+
+.req
+	color: $orange
+
+
+.cartPage
+	display: flex
+	flex-basis: 100%
+	flex-wrap: wrap
+	justify-content: space-between
+	align-items: stretch
+	font-size: 1.2rem
+	background: $white
+	&-header
+		display: flex
+		flex-basis: 100%
+		justify-content: space-between
+		border-bottom: 1px solid $dark
+		padding: 1rem
+		background: $dark
+		color: $white
+		font-weight: bold
+		&_product
+			flex-basis: 40%
+		&_sku
+			flex-basis: 10%
+			text-align: center
+		&_amount
+			flex-basis: 15%
+			text-align: center
+		&_weight
+			flex-basis: 10%
+			text-align: center
+		&_sum
+			flex-basis: 15%
+			text-align: center
+		&_remove
+			flex-basis: 10%
+			text-align: center
+	&-body
+		display: flex
+		flex-basis: 100%
+		justify-content: space-between
+		align-items: center
+		padding: 1rem 0
+		&_image
+			flex-basis: 15%
+			width: 150px
+			height: 150px
+			display: flex
+			align-items: center
+			justify-content: center
+			img
+				max-width: 100%
+				max-height: 100%
+		&_title
+			flex-basis: 25%
+			text-decoration: none
+			color: $dark
+			&:hover
+				text-decoration: underline
+		&_sku
+			flex-basis: 10%
+			text-align: center
+		&_amount
+			flex-basis: 15%
+			display: flex
+			justify-content: center
+		&_weight
+			flex-basis: 10%
+			text-align: center
+		&_sum
+			flex-basis: 15%
+			text-align: center
+		&_remove
+			flex-basis: 10%
+			text-align: center
+			&_btn
+				border: none
+				padding: 1rem
+				color: $orange
+				font-weight: bold
+				transition: .2s
+				background: none
+				cursor: pointer
+				&:hover .cartPage-body_remove_btn.icon path
+					fill: $orange
+	&-footer
+		display: flex
+		flex-basis: 100%
+		justify-content: space-between
+		align-items: center
+		padding: 1rem
+		background: $dark
+		color: $white
+		font-weight: bold
+		&_total
+			flex-basis: 50%
+			text-align: right
+		&_amount
+			flex-basis: 15%
+			text-align: center
+		&_weight
+			flex-basis: 10%
+			text-align: center
+		&_sum
+			flex-basis: 25%
+			text-align: center
+	&-buttons
+		margin: 1rem 0
+		display: flex
+		justify-content: flex-end
+		flex-basis: 100%
+		&_remove
+			border: none
+			padding: 1rem
+			background: $dark
+			margin: .5rem
+			text-decoration: none
+			color: $white
+			font-weight: bold
+			font-size: 1.2rem
+			min-width: 150px
+			text-align: center
+			transition: .2s
+			&:hover
+				background: $orange
+				cursor: pointer
+		&_confirm
+			border: none
+			padding: 1rem
+			background: $green
+			margin: .5rem
+			text-decoration: none
+			color: $white
+			font-weight: bold
+			font-size: 1.2rem
+			min-width: 150px
+			text-align: center
+			transition: .2s
+			&:hover
+				background: darken($green,10)
+				text-decoration: none
+
+.owl-item img
+	width: initial !important
+.comparePage
+	position: relative
+	flex-wrap: wrap
+	overflow: hidden
+	align-content: flex-start
+	background: $white
+	padding: 1rem
+	&.slider
+		&::before, &::after
+			content: ''
+			position: absolute
+			top: 0
+			bottom: 0
+			z-index: 2
+			height: 250px
+		&::before
+			width: 50px
+			left: 0
+			background-image: linear-gradient(90deg,$white 0%,rgba($white,0)100%)
+		&::after
+			width: 100px
+			right: 0
+			background-image: linear-gradient(-90deg,$white 0%,rgba($white,0)100%)
+	&_head, &_info, &_group
+		display: flex
+		flex-wrap: wrap
+		flex-basis: 100%
+		margin-bottom: 1rem
+	&_head 
+		position: relative
+		&_btns
+			position: absolute
+			width: 100%
+			max-width: 1540px
+			height: 100%
+			display: none
+			align-items: center
+			justify-content: space-between
+			font-weight: bold
+			z-index: 9
+			.prev, .next
+				cursor: pointer
+		&.scroll
+			width: 100%
+			position: fixed
+			top: 0
+			left: 0
+			z-index: 99
+			background: $white
+			left: 0
+			box-shadow: 0 0 1rem $dark
+			padding-bottom: 1rem
+			.comparePage_row
+				max-width: 1560px
+				margin: 0 auto
+			.comparePage_item
+				border: none
+		
+	&_row
+		width: 100%
+		transform: translateX(0px)
+		position: relative
+		&_line
+			display: flex
+			flex-basis: 100%
+			
+	&_group
+		&_header
+			flex-basis: 100%
+			margin-bottom: 1rem
+			font-weight: bold
+		.comparePage_row
+			padding: 1rem 0
+			&:hover
+				background: lighten($lgray,10)
+	&_item
+		background: $white
+		display: flex
+		justify-content: center
+		flex-wrap: wrap
+		width: 250px
+		margin-right: 1rem
+		padding: 1rem
+		border: $border
+		position: relative
+		&_rating
+			flex-basis: 100%
+		&_price
+			flex-basis: 100%
+			font-weight: bold
+			font-size: 18px
+		&_close
+			background: none
+			border: none
+			position: absolute
+			right: 1rem
+			top: 1rem
+			width: 40px
+			height: 40px
+			cursor: pointer
+			transition: .5s
+			transform-origin: center
+			padding: 0
+			&:hover
+				transform: rotate(180deg)
+				path
+					fill: $orange
+.rating-stars
+	display: flex
+	flex-basis: 100%
+	.star
+		margin-right: .2rem
+	.rating
+		margin-left: 1rem
+@media screen and (max-width: 1366px)
+	body
+		font-size: 12px
+	.mhide
+		display: none
+	.header
+		flex-wrap: wrap
+		&-block
+			flex-basis: 20%
+			&:first-child
+				flex-basis: 15%
+		&-search
+			flex-basis: 20%
+		&-panel
+			flex-basis: 25%
+
+	.menuLine
+		flex-wrap: wrap
+		&-menu
+			flex-basis: calc(70% - 1rem)
+			a
+				padding: 0 1rem
+	.product
+		//width: initial
+	.categories
+		flex-wrap: wrap
+		&-item, &-item:last-child, &-item:first-child
+			margin: 0.5rem
+			flex-basis: calc(20% - 1rem)
+
+	.catalog
+		&-panel
+			width: 30%
+			&-list
+				&_item
+					&_link
+						pointer-events: none
+					&_block
+						&_main
+							&_menu
+								flex-basis: 100%
+								&_categs
+									column-count: 2
+							&_baner
+								display: none
+
+@media screen and (max-width: 1024px)
+
+	.drawCategs
+		&-item
+			flex-basis: calc(25% - 1rem)
+	.tagline
+		&-block
+			flex-basis: 75%
+			width: 75%
+			&.open
+				.tagline-block_item
+					flex-basis: calc(25% - 1rem)
+		&_btn
+			flex-basis: calc(25% - 1rem)
+
+	.menuLine
+		&-catalogButton, &-stockButton, &-menu
+			flex-basis: 25%
+		&-menu
+			li
+				display: flex
+				width: 100%
+				position: relative
+			&_more
+				display: flex
+				width: 100%
+				height: 100%
+				align-items: center
+				justify-content: center
+				background: $lgreen
+			&_sub
+				display: none
+				position: absolute
+				left: 0
+				top: 100%
+				width: 100%
+				flex-wrap: wrap
+				background: $dark
+				li
+					flex-basis: 100%
+					background: $dark
+					a
+						padding: 1rem
+						width: 100%
+				&.open
+					display: flex
+
+
+
+@media screen and (max-width: 820px)
+
+	.header
+		padding: 1rem
+		&-block
+			flex-basis: 25%
+			&:first-child
+				flex-basis: 30%
+		&-search
+			flex-basis: 70%
+		&-panel
+			flex-basis: 50%
+			margin-top: 1rem
+	.menuLine
+		&-catalogButton, &-stockButton, &-menu
+			flex-basis: 33.33%
+@media screen and (max-width: 420px)
+	.infoline
+		text-align: center
+	.header
+		padding: 1rem
+		&-block
+			flex-basis: 50%
+			padding: 1rem .5rem
+			align-items: center
+			&:first-child
+				flex-basis: 100%
+				justify-content: center
+				width: 100%
+				a
+					width: 100%
+				svg
+					width: 100%
+					height: auto
+			&_info
+				strong
+					font-size: 14px
+					flex-basis: 100%
+				span
+					display: none
+			.icon
+				margin: 0
+		&-search
+			flex-basis: 100%
+		&-panel
+			flex-basis: 100%
+	.menuLine
+		&-catalogButton
+			flex-basis: 50%
+		&-stockButton, &-menu
+			flex-basis: 25%
+		&-menu_sub
+			width: 100vw
+			right: 0
+			left: unset
+	.mainBanner
+		flex-basis: 100%
+	.billboard
+		display: none
+	.categories
+		flex-basis: 100%
+		&-item
+			flex-basis: calc(50% - 1rem)
+			&:first-child
+				margin: 0.5rem
+				flex-basis: calc(50% - 1rem)
+			&:last-child
+				margin: 0.5rem
+				flex-basis: calc(50% - 1rem)
+	.tagline
+		&-block, &_btn
+			flex-basis: 100%
+		&-block
+			&.open .tagline-block_item
+				flex-basis: calc(50% - 1rem)
+				padding: 1rem 0.2rem
+				height: initial
+	.drawCategs
+		&-item
+			flex-basis: calc(50% - 1rem)
+	.questions
+		flex-basis: 100%
+	.subscribe
+		flex-basis: 100%
+		flex-wrap: wrap
+		&-info
+			flex-basis: 100%
+		&-form
+			flex-basis: 100%
+			input[type="text"]
+				flex-basis: 100%
+			button
+				flex-basis: 100%
+				margin: 1rem 0
+			span
+				flex-basis: 80%
+	.footer
+		&-block
+			flex-basis: 100%
+			justify-content: center
+			text-align: center
+		&-bottom
+			flex-wrap: wrap
+			padding: 1rem
+			&_rights, &_social
+				flex-basis: 100%
+				text-align: center
+				padding: 0
+				
+
+
+	.fxww
+		flex-wrap: wrap
+	.catalog
+		&-panel
+			width: 100%
+			&-list
+				&_item
+					height: auto
+					&_link
+						width: 100%
+						pointer-events: none
+						&.linked
+							pointer-events: auto
+					&_block
+						display: none
+						position: relative
+						left: 0
+						height: auto
+						width: 100% !important
+						opacity: 1
+						&_main
+							&_menu
+								flex-basis: 100%
+								&_title
+									display: none
+								&_categs
+									column-count: 1
+									height: auto
+									&_el
+										padding: .5rem
+										&_title
+											font-weight: normal
+										ul
+											display: none
+							&_baner
+								display: none
+						&_brands
+							display: none
