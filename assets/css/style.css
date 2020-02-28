@@ -380,8 +380,8 @@ section { margin-top: 1rem; margin-bottom: 1rem; -ms-flex-wrap: wrap; flex-wrap:
 .prodcat_filter_select_checkbox input:checked + .prodcat_filter_select_checkbox_block::before { content: url("../svg/checked.svg"); line-height: 1rem; }
 .prodcat_filter_select_checkbox_block { width: 3rem; height: 3rem; border: 1px solid #ddd; margin-right: 1rem; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 .prodcat_filter_select_checkbox_title { -ms-flex-preferred-size: calc(100% - 3rem); flex-basis: calc(100% - 3rem); }
-.prodcat_goods { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
-.prodcat_goods .product { margin: 0 0 1rem; -ms-flex-preferred-size: calc(20% - 1rem); flex-basis: calc(20% - 1rem); }
+.prodcat_goods { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+.prodcat_goods .product { margin: 0.5rem; -ms-flex-preferred-size: calc(20% - 1rem); flex-basis: calc(20% - 1rem); }
 .prodcat_btns { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -ms-flex-preferred-size: 100%; flex-basis: 100%; }
 .prodcat_btns button { -ms-flex-preferred-size: 100%; flex-basis: 100%; border: none; margin-bottom: 1rem; min-width: 100px; }
 
