@@ -23,7 +23,7 @@ html
 body
 	margin: 0
 	padding: 0
-	background: url("../img/bg_layer.png") darken($white,6)
+	background: url("../img/bg_layer.png") darken($white,2)
 	background-size: contain
 	font-size: 14px
 	color: $dark
@@ -106,6 +106,7 @@ section
 		display: flex
 		padding: 1rem
 		flex-basis: 16.6666%
+		cursor: pointer
 		.icon
 			flex-basis: 40px
 			margin-right: 1rem
@@ -116,7 +117,7 @@ section
 			text-align: center
 			position: relative
 			strong
-				font-size: 1.3rem
+				font-size: 1.6rem
 				flex-basis: 100%
 
 			span
@@ -708,6 +709,97 @@ section
 			display: flex
 			flex-direction: column
 			min-height: 200px
+.comments
+	&-list
+		&_item
+			padding: 1rem
+			border: $border
+			margin: 1rem 0
+			&-name
+				font-weight: bold
+	&-form
+		display: flex
+		width: 100%
+		max-width: 420px
+		flex-wrap: wrap
+		padding: 1rem 0
+		justify-content: flex-end
+		&_title
+			flex-basis: 100%
+			font-weight: bold
+			margin-bottom: 1rem
+			font-size: 1.8rem
+		&-item
+			display: flex
+			flex-basis: 100%
+			margin-bottom: 1rem
+			align-items: center
+			&_title
+				flex-basis: 40%
+				font-weight: bold
+			input, textarea
+				flex-basis: 60%
+				padding: .5rem
+			&_stars
+				span
+					cursor: pointer
+					path
+						fill: $gray
+					&.active
+						path
+							fill: $green
+
+.techsheet
+	flex-direction: row
+	align-items: flex-start
+	flex-wrap: wrap
+	&_item
+		padding: 1rem
+		display: flex
+		justify-content: space-between
+		align-items: center
+		flex-basis: 50%
+		border-bottom: 1px dotted $gray
+		&-title
+			font-weight: bold
+
+.tgauth
+	display: flex
+	flex-basis: 100%
+	flex-wrap: wrap
+	justify-content: space-evenly
+	padding: 1rem
+	&-block
+		flex-basis: 40%
+		display: flex
+		flex-wrap: wrap
+		align-content: flex-start
+		padding: 1rem
+		&_title
+			font-weight: bold
+			margin-bottom: 1rem
+			font-size: 1.8rem
+		span
+			flex-basis: 100%
+		label
+			font-weight: bold
+		&_row
+			display: flex
+			justify-content: space-between
+			align-items: center
+			margin: 1rem 0
+			flex-basis: 100%
+			flex-wrap: wrap
+	&_form
+		display: flex
+		flex-wrap: wrap
+		label
+			flex-basis: 100%
+			margin: 1rem 0
+			font-weight: bold
+		input
+			flex-basis: 100%
+			padding: 1rem
 
 .product
 	display: flex !important
@@ -971,16 +1063,38 @@ section
 .sidebar
 	flex-basis: calc(16.666% - 1rem)
 	margin: 0 .5rem 0 0
+	background: $white
+	border: $border
+	&_menu
+		list-style: none
+		padding: 0
+		margin: 0
+		display: flex
+		flex-wrap: wrap
+		&_item
+			display: flex
+			flex-basis: 100%
+			&.active
+				font-weight: bold
+				pointer-events: none
+				background: $lgray
+				a
+					color: $dark
+			a
+				padding: 1rem
+				width: 100%
 .mainside
 	flex-basis: calc(83.34% - 1rem)
 	margin: 0 0 0 .5rem
+	border: $border
+	background: $white
+
 .bookmarksPage
 	&_goods
 		display: flex
 		flex-wrap: wrap
-		justify-content: space-between
 		.product
-			margin: 0 0 1rem
+			margin: .5rem
 			flex-basis: calc(20% - 1rem)
 	&_remove
 		position: absolute
@@ -1030,6 +1144,7 @@ section
 
 
 .stockPage
+	display: flex
 	flex-wrap: wrap
 	&_active, &_past
 		flex-basis: 100%
@@ -1064,6 +1179,7 @@ section
 
 
 .reviewPage
+	display: flex
 	flex-wrap: wrap
 	&_control
 		background: $white
@@ -1144,6 +1260,7 @@ section
 					.icon
 						margin-right: 1rem
 .faqPage
+	display: flex
 	flex-wrap: wrap
 	&_list
 		border: $border
@@ -1212,22 +1329,12 @@ section
 				&.answer .icon path
 					fill: $orange
 .simplePage
-	&_menu
-		background: $white
-		padding: 1rem
-		margin: 0
-		list-style: none
-		border: $border
-		&_item
-			&.active
-				font-weight: bold
-			a
-				display: block
-				padding: 1rem
+	display: flex
+	flex-basis: 100%
+	flex-wrap: wrap
 	&_content
-		background: $white
 		padding: 1rem
-		border: $border
+		background: $white
 .contactPage
 	display: flex
 	flex-wrap: wrap
@@ -1248,7 +1355,7 @@ section
 			font-weight: bold
 			font-size: 18px
 			flex-basis: 100%
-			margin-bottom: 1rem
+			margin: 1rem 0
 		&.map
 			max-height: 300px
 			overflow: hidden
@@ -1260,12 +1367,29 @@ section
 			padding-left: 1rem
 			width: 100px
 .prodcat
+	display: flex
+	flex-wrap: wrap
+	&-sidebar
+		flex-basis: 16.666%
+	&-main
+		flex-basis: calc(83.33% - 1rem)
+		margin-left: 1rem
 	&_top
 		display: flex
 		justify-content: space-between
 		align-items: center
 		padding: 1rem 0
 		height: 40px
+		flex-basis: 100%
+		&_btn
+			display: none
+			align-items: center
+			background: $white
+			justify-content: space-evenly
+			border: $border
+			padding: 1rem
+			margin-right: 1rem
+			flex-basis: calc(25% - 1rem)
 		&_block
 			flex-basis: 100%
 			display: flex
@@ -1389,6 +1513,15 @@ section
 		.product
 			margin: 0 0 1rem
 			flex-basis: calc(20% - 1rem)
+	&_btns
+		display: flex
+		flex-wrap: wrap
+		flex-basis: 100%
+		button
+			flex-basis: 100%
+			border: none
+			margin-bottom: 1rem
+			min-width: 100px
 
 .content
 	flex-wrap: wrap
@@ -1767,6 +1900,33 @@ footer
 		z-index: 1
 		background: rgba($black,.5)
 
+.cityselect
+	max-width: 90vw
+	&-container
+		flex-basis: 100%
+		display: flex
+		flex-direction: column
+		height: 500px
+		flex-wrap: wrap
+	&-block
+		display: flex
+		width: 20%
+		padding: .5rem
+		&_lt
+			flex-basis: 10%
+			text-align: center
+			color: $gray
+		&_list
+			flex-basis: 90%
+			display: flex
+			flex-wrap: wrap
+			a
+				flex-basis: 100%
+				&.active
+					font-weight: bold
+					color: $dark
+					pointer-events: none
+
 .orderPage
 	display: flex
 	flex-basis: 100%
@@ -1824,6 +1984,7 @@ footer
 				height: 100%
 				justify-content: space-between
 				flex-basis: 30%
+				cursor: pointer
 			input[type="radio"]
 					display: none
 					&:checked + .orderPage_main_control_radio::before
@@ -1840,6 +2001,8 @@ footer
 				justify-content: center
 				width: 3rem
 				height: 3rem
+				min-width: 3rem
+				min-height: 3rem
 				border-radius: 50%
 				border: $border
 				margin-right: 1rem
@@ -1850,6 +2013,7 @@ footer
 				flex-wrap: wrap
 				flex-basis: 90%
 				align-content: flex-start
+				padding: .5rem
 				&_title
 					font-weight: bold
 					margin-bottom: 1rem
@@ -1888,71 +2052,60 @@ footer
 		background: $dark
 		color: $white
 		font-weight: bold
-		&_product
-			flex-basis: 40%
-		&_sku
-			flex-basis: 10%
-			text-align: center
-		&_amount
-			flex-basis: 15%
-			text-align: center
-		&_weight
-			flex-basis: 10%
-			text-align: center
-		&_sum
-			flex-basis: 15%
-			text-align: center
-		&_remove
-			flex-basis: 10%
-			text-align: center
 	&-body
 		display: flex
 		flex-basis: 100%
 		justify-content: space-between
 		align-items: center
 		padding: 1rem 0
-		&_image
-			flex-basis: 15%
-			width: 150px
-			height: 150px
-			display: flex
-			align-items: center
-			justify-content: center
-			img
-				max-width: 100%
-				max-height: 100%
-		&_title
-			flex-basis: 25%
-			text-decoration: none
-			color: $dark
-			&:hover
-				text-decoration: underline
-		&_sku
-			flex-basis: 10%
-			text-align: center
-		&_amount
-			flex-basis: 15%
+	&_product
+		flex-basis: 40%
+		display: flex
+		align-items: center
+	&_sku
+		flex-basis: 10%
+		text-align: center
+	&_amount
+		flex-basis: 15%
+		text-align: center
+		&_form
 			display: flex
 			justify-content: center
-		&_weight
-			flex-basis: 10%
-			text-align: center
-		&_sum
-			flex-basis: 15%
-			text-align: center
-		&_remove
-			flex-basis: 10%
-			text-align: center
-			&_btn
-				border: none
-				padding: 1rem
-				color: $orange
-				font-weight: bold
-				transition: .2s
-				background: none
-				cursor: pointer
-				&:hover .cartPage-body_remove_btn.icon path
-					fill: $orange
+	&_weight
+		flex-basis: 10%
+		text-align: center
+	&_sum
+		flex-basis: 15%
+		text-align: center
+	&_remove
+		flex-basis: 10%
+		text-align: center
+		&_btn
+			border: none
+			padding: 1rem
+			font-weight: bold
+			transition: .2s
+			background: none
+			cursor: pointer
+			transition: .5s
+			&:hover 
+				transform: rotate(180deg)
+	&_image
+		flex-basis: 40%
+		width: 150px
+		height: 150px
+		display: flex
+		align-items: center
+		justify-content: center
+		img
+			max-width: 100%
+			max-height: 100%
+	&_title
+		flex-basis: 60%
+		text-decoration: none
+		color: $dark
+		&:hover
+			text-decoration: underline
 	&-footer
 		display: flex
 		flex-basis: 100%
@@ -1977,7 +2130,7 @@ footer
 	&-buttons
 		margin: 1rem 0
 		display: flex
-		justify-content: flex-end
+		justify-content: space-between
 		flex-basis: 100%
 		&_remove
 			border: none
@@ -2126,6 +2279,42 @@ footer
 		margin-right: .2rem
 	.rating
 		margin-left: 1rem
+.tg
+	&_form
+		display: flex
+		flex-wrap: wrap
+		margin: auto
+		flex-basis: 100%
+		justify-content: center
+		&_block
+			flex-basis: 50%
+			padding: 1rem
+			display: flex
+			flex-wrap: wrap
+			input, textarea
+				padding: 1rem
+				margin-bottom: 1rem
+				flex-basis: 100%
+				border: 1px solid $gray
+				&::placeholder
+					color: $lgray
+					font-weight: bold
+	&_btn
+		padding: 1rem
+		border: $border
+		background: $dark
+		color: $white
+		min-width: 250px
+		cursor: pointer
+		transition: .5s
+		font-weight: bold
+		text-align: center
+		&:hover
+			background: $orange
+			text-decoration: none
+			
+
+
 @media screen and (max-width: 1366px)
 	body
 		font-size: 12px
@@ -2219,6 +2408,57 @@ footer
 				&.open
 					display: flex
 
+	.sidebar
+		flex-basis: 100%
+		margin: 0
+		&_menu
+			&_item
+				flex-basis: 50%
+	.mainside
+		flex-basis: 100%
+		margin: 1rem 0
+
+	.prodcat_goods .product, .bookmarksPage_goods .product
+		flex-basis: calc(25% - 1rem)
+	.prodcat
+		padding: .5rem
+		&-sidebar
+			position: fixed
+			top: 0
+			left: 0
+			height: 100vh
+			z-index: 99
+			overflow-y: scroll
+			background: $white
+			transform: translateX(-100%)
+			transition: .5s
+			&.open
+				transform: translateX(0%)
+		&_filter
+			height: 100%
+		&-overlay
+			display: none
+			position: fixed
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			background: rgba($dark,.5)
+			z-index: 80
+		&-main
+			flex-basis: 100%
+			margin: 0
+		&_top
+			padding: 0
+			margin: 1rem 0
+			&_btn
+				display: flex
+				font-weight: bold
+			&_block
+				flex-basis: 75%
+	
+
+
 
 
 @media screen and (max-width: 820px)
@@ -2237,6 +2477,25 @@ footer
 	.menuLine
 		&-catalogButton, &-stockButton, &-menu
 			flex-basis: 33.33%
+	.subscribe
+		&-form
+			input[type="text"]
+				flex-basis: 100%
+			button
+				flex-basis: 100%
+				margin: 1rem 0
+			span
+				flex-basis: 80%
+	.prodcat_goods .product, .bookmarksPage_goods .product
+		flex-basis: calc(33.33% - 1rem)
+
+	.orderPage
+		flex-wrap: wrap
+		&_main, &_side
+			flex-basis: 100%
+		&_main
+			padding: 1rem
+
 @media screen and (max-width: 420px)
 	.infoline
 		text-align: center
@@ -2329,7 +2588,7 @@ footer
 				flex-basis: 100%
 				text-align: center
 				padding: 0
-				
+			
 
 
 	.fxww
@@ -2370,3 +2629,64 @@ footer
 								display: none
 						&_brands
 							display: none
+	.contactPage
+		&_block
+			&.map, &.gallery
+				flex-basis: 100%
+	.tg
+		&_form
+			&_block
+				flex-basis: 100%
+	.prodcat_goods .product
+		flex-basis: 100%
+		margin: 1rem 0
+
+	.bookmarksPage_goods .product
+		flex-basis: 100%
+
+
+	.xhide
+		display: none
+
+	.cartPage
+		&-header, &-body, &-footer
+			flex-wrap: wrap
+		&-header
+			.cartPage
+				&_sku, &_amount, &_weight, &_sum, &_remove
+					display: none
+		&-body
+			padding: 1rem
+			.cartPage
+				&_product
+					flex-basis: 80%
+				&_image, &_title
+					flex-basis: 50%
+					text-align: center
+				&_sku
+					flex-basis: 20%
+				&_amount, &_weight, &_sum
+					flex-basis: 25%
+				&_remove
+					flex-basis: 12%
+		&-footer
+			&_total
+				flex-basis: 10%
+			&_amount,&_weight,&_sum
+				flex-basis: 25%
+	main
+		padding-bottom: 50px
+	.orderPage_main
+		&_control
+			margin: 0 0 1rem 0
+			label
+				flex-basis: 100%
+				height: unset
+				margin-bottom: .5rem
+		&_block_item
+			&_title
+				flex-basis: 100%
+				margin-bottom: 1rem
+			input[type="text"]
+				width: 100%
+				margin: 0
