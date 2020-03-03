@@ -1051,34 +1051,84 @@
             </nav>
             <div class="wrap prodcat">
                 <div class="prodcat_top">
-                    <div class="prodcat_top_btn"><img src="assets/svg/params.svg" alt="" class="icon">Фильтры</div>
+                    <div class="prodcat_top_btn"><img src="assets/svg/params.svg" alt="" class="icon"><span>Подбор по параметрам</span></div>
+                    <div class="prodcat_top_sort"><img src="assets/svg/sort.svg" alt="" class="icon"></div>
                     <div class="prodcat_top_block">
-                        <div class="prodcat_top_block_sort"><b>Сортировать:</b>
-                            <select>
-                                <option data-sort="price" value="asc">Сначала дешёвые</option>
-                                <option data-sort="price" value="desc">Сначала дорогие</option>
-                            </select>
+                        <div class="prodcat_top_block_title">Сортировать:</div>
+                        <div class="prodcat_top_block_sort">
+                            <div class="prodcat_top_block_sort_title">Сортировать:</div>
+                            <div class="prodcat_top_block_sort_link">
+                                <div class="prodcat_top_block_sort_link_title">Возрастанию цены</div>
+                                <div class="prodcat_top_block_sort_link_icon"><img class="icon" src="assets/svg/ar_next.svg"/></div>
+                            </div>
+                            <div class="prodcat_top_block_sort_list">
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="sort" value="name">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">Наименованию</span>
+                                </label>
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="sort" value="popular">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">Популярности</span>
+                                </label>
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="sort" value="review">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">Отзывам</span>
+                                </label>
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="sort" value="rating">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">Рейтингу</span>
+                                </label>
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="sort" value="price_asc">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">Возрастанию цены</span>
+                                </label>
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="sort" value="price_desc">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">Убыванию цены</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="prodcat_top_block_sort mhide"><b>Магазины:</b>
-                            <select>
-                                <option data-sort="price" value="all">Все</option>
-                                <option data-sort="price" value="msk">Дмитровское ш.62с5</option>
-                                <option data-sort="price" value="psh">г.Пушкино, Пушкинское ш.2</option>
-                            </select>
+                        <div class="prodcat_top_block_sort">
+                            <div class="prodcat_top_block_sort_title">Наличие:</div>
+                            <div class="prodcat_top_block_sort_link">
+                                <div class="prodcat_top_block_sort_link_title">В магазинах и под заказ</div>
+                                <div class="prodcat_top_block_sort_link_icon"><img class="icon" src="assets/svg/ar_next.svg"/></div>
+                            </div>
+                            <div class="prodcat_top_block_sort_list">
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="available" value="store_order">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">В магазинах и под заказ</span>
+                                </label>
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="available" value="store">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">В магазинах</span>
+                                </label>
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="available" value="all">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">Все</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="prodcat_top_block_sort xhide"><b>Наличие:</b>
-                            <select>
-                                <option data-sort="price" value="all">в магазинах и под заказ</option>
-                                <option data-sort="price" value="stock">В наличии</option>
-                                <option data-sort="price" value="order">Под заказ</option>
-                            </select>
-                        </div>
-                        <div class="prodcat_top_block_sort xhide"><b>Показать:</b>
-                            <select>
-                                <option data-sort="price" value="30">30</option>
-                                <option data-sort="price" value="60">60</option>
-                                <option data-sort="price" value="90">90</option>
-                            </select>
+                        <div class="prodcat_top_block_sort">
+                            <div class="prodcat_top_block_sort_title">Выводить по:</div>
+                            <div class="prodcat_top_block_sort_link">
+                                <div class="prodcat_top_block_sort_link_title">30</div>
+                                <div class="prodcat_top_block_sort_link_icon"><img class="icon" src="assets/svg/ar_next.svg"/></div>
+                            </div>
+                            <div class="prodcat_top_block_sort_list">
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="show" value="30">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">30</span>
+                                </label>
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="show" value="60">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">60</span>
+                                </label>
+                                <label class="prodcat_top_block_sort_list_item">
+                                    <input type="radio" class="prodcat_top_block_sort_list_item_radio" name="show" value="90">
+                                    <span class="prodcat_top_block_sort_list_item_checktitle">90</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1239,6 +1289,92 @@
                 </div>
                 <div class="prodcat-main">
                     <div class="prodcat_goods">
+                        <div class="product" product-id="product-id">
+                            <div class="product-img">
+                                <a href="#">
+                                    <img src="assets/products/Yanis_Snowthrowers_Blizzard_M_01.jpg" alt="Yanis Blizzard ME24DL">
+                                </a>
+                                <div class="product_gift"><a href="gift"><img src="assets/svg/gift.svg" alt="" class="icon"></a></div>
+                                <div class="product_fastview popup_open mhide" data-popup="fastview"><a href="#"><img src="assets/svg/fastview.svg" alt="" class="icon"></a></div>
+                            </div>
+                            <div class="product-labels">
+                                <div class="product-labels_btn sale">Скидка</div>
+                                <div class="product-labels_btn best">Хит</div>
+                                <div class="product-labels_btn new">Новинка</div>
+                            </div>
+                            <div class="product-rating stars">
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="rating" data-rating="4">8</div>
+                            </div>
+                            <div class="product-sku">ТС-000000</div>
+                            <div class="product-title"><a href="#">Yanis Blizzard ME24DL</a></div>
+                            <div class="product-price">
+                                <div class="product-price_title">Цена:</div>
+                                <div class="product-price_pricing">
+                                    <div class="product-price_pricing_new">9 999 999 ₽</div>
+                                    <div class="product-price_pricing_old">10 000 000 ₽</div>
+                                </div>
+                            </div>
+                            <form method="post" class="product-buyblock">
+                                <input type="hidden" name="id" value="product-id">
+                                <input type="hidden" name="count" value="1">
+                                <input type="hidden" name="options" value="[]">
+                                <div class="product-buyblock_row">
+                                    <button onclick="yaCounter50851865.reachGoal('toCart'); return true;" title="В корзину" type="submit" name="cart_action" value="cart/add" class="btn btn-buy"><img src="assets/svg/cartplus.svg" alt="" class="icon"><span>Купить</span></button>
+                                    <button onclick="yaCounter50851865.reachGoal('toBookmark'); return true;" title="Добавить в закладки" type="submit" name="cart_action" value="bookmarks/add" class="btn btn-bookmarks"><img src="assets/svg/bookmarks.svg" alt="" class="icon"></button>
+                                    <button onclick="yaCounter50851865.reachGoal('toCompare'); return true;" title="Добавить в сравнения" type="submit" name="cart_action" value="compare/add" class="btn btn-compare"><img src="assets/svg/compare.svg" alt="" class="icon"></button>
+                                </div>
+                                <button onclick="yaCounter50851865.reachGoal('OneClick'); return true;" title="Купить в один клик" type="submit" name="cart_action" value="cart/oneclick" class="btn btn-oneclick"><img src="assets/svg/oneclick.svg" alt="" class="icon"><span>Купить в 1 клик</span></button>
+                            </form>
+                            <div class="product-available">В наличии</div>
+                        </div>
+                        <div class="product" product-id="product-id">
+                            <div class="product-img">
+                                <a href="#">
+                                    <img src="assets/products/Yanis_Snowthrowers_Blizzard_M_01.jpg" alt="Yanis Blizzard ME24DL">
+                                </a>
+                                <div class="product_gift"><a href="gift"><img src="assets/svg/gift.svg" alt="" class="icon"></a></div>
+                                <div class="product_fastview popup_open mhide" data-popup="fastview"><a href="#"><img src="assets/svg/fastview.svg" alt="" class="icon"></a></div>
+                            </div>
+                            <div class="product-labels">
+                                <div class="product-labels_btn sale">Скидка</div>
+                                <div class="product-labels_btn best">Хит</div>
+                                <div class="product-labels_btn new">Новинка</div>
+                            </div>
+                            <div class="product-rating stars">
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="star"><img src="assets/svg/star.svg" alt="" class="icon"></div>
+                                <div class="rating" data-rating="4">8</div>
+                            </div>
+                            <div class="product-sku">ТС-000000</div>
+                            <div class="product-title"><a href="#">Yanis Blizzard ME24DL</a></div>
+                            <div class="product-price">
+                                <div class="product-price_title">Цена:</div>
+                                <div class="product-price_pricing">
+                                    <div class="product-price_pricing_new">9 999 999 ₽</div>
+                                    <div class="product-price_pricing_old">10 000 000 ₽</div>
+                                </div>
+                            </div>
+                            <form method="post" class="product-buyblock">
+                                <input type="hidden" name="id" value="product-id">
+                                <input type="hidden" name="count" value="1">
+                                <input type="hidden" name="options" value="[]">
+                                <div class="product-buyblock_row">
+                                    <button onclick="yaCounter50851865.reachGoal('toCart'); return true;" title="В корзину" type="submit" name="cart_action" value="cart/add" class="btn btn-buy"><img src="assets/svg/cartplus.svg" alt="" class="icon"><span>Купить</span></button>
+                                    <button onclick="yaCounter50851865.reachGoal('toBookmark'); return true;" title="Добавить в закладки" type="submit" name="cart_action" value="bookmarks/add" class="btn btn-bookmarks"><img src="assets/svg/bookmarks.svg" alt="" class="icon"></button>
+                                    <button onclick="yaCounter50851865.reachGoal('toCompare'); return true;" title="Добавить в сравнения" type="submit" name="cart_action" value="compare/add" class="btn btn-compare"><img src="assets/svg/compare.svg" alt="" class="icon"></button>
+                                </div>
+                                <button onclick="yaCounter50851865.reachGoal('OneClick'); return true;" title="Купить в один клик" type="submit" name="cart_action" value="cart/oneclick" class="btn btn-oneclick"><img src="assets/svg/oneclick.svg" alt="" class="icon"><span>Купить в 1 клик</span></button>
+                            </form>
+                            <div class="product-available">В наличии</div>
+                        </div>
                         <div class="product" product-id="product-id">
                             <div class="product-img">
                                 <a href="#">
