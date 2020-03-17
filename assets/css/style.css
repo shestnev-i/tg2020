@@ -630,7 +630,8 @@ footer { margin-top: 1rem !important; background: #222; }
   .catalog-panel-list_item_link { pointer-events: none; }
   .catalog-panel-list_item_block_main_menu { -ms-flex-preferred-size: 100%; flex-basis: 100%; }
   .catalog-panel-list_item_block_main_menu_categs { -webkit-column-count: 2; column-count: 2; }
-  .catalog-panel-list_item_block_main_baner { display: none; } }
+  .catalog-panel-list_item_block_main_baner { display: none; }
+  .prodcat_goods .product { -ms-flex-preferred-size: calc(25% - 1rem); flex-basis: calc(25% - 1rem); } }
 @media screen and (max-width: 1024px) { .header-block .icon { -ms-flex-preferred-size: 10%; flex-basis: 10%; }
   .header-block_info { -ms-flex-preferred-size: 90%; flex-basis: 90%; }
   .drawCategs-item { -ms-flex-preferred-size: calc(25% - 1rem); flex-basis: calc(25% - 1rem); }
