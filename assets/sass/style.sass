@@ -29,7 +29,7 @@ body
 	color: $dark
 	display: none
 
-a:active, a:focus, input, textarea, textarea:active, input:active, input:focus, button:active, button:focus, img, select
+a:active, a:focus, input, textarea, textarea:active, input:active, input:focus, button:active, button:focus, img, select, label
 	outline: none
 
 a
@@ -46,18 +46,25 @@ h1,h2,h3,h4,h5,h6
 	margin: 0
 	padding: 0
 
-img
+img, svg
 	max-width: 100%
 	height: auto
 
-input:-webkit-autofill
-	-webkit-animation-name: autofill
-	-webkit-animation-fill-mode: both
+svg
+	max-height: 24px
 
-input
-	&::-webkit-outer-spin-button, &::-webkit-inner-spin-button
-		-webkit-appearance: none
-		margin: 0
+input, label, span
+	&:-webkit-autofill
+		-webkit-animation-name: autofill
+		-webkit-animation-fill-mode: both
+
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button
+	-webkit-appearance: none
+input[type='number']
+	-moz-appearance: textfield
+
+label
+	margin: 0
 header
 	flex-wrap: wrap
 	background: $white
@@ -107,6 +114,7 @@ section
 		padding: 1rem
 		flex-basis: 16.6666%
 		cursor: pointer
+		align-items: center
 		.icon
 			flex-basis: 40px
 			margin-right: 1rem
@@ -116,6 +124,7 @@ section
 			flex-wrap: wrap
 			text-align: center
 			position: relative
+			width: 100%
 			strong
 				font-size: 1.6rem
 				flex-basis: 100%
@@ -133,6 +142,7 @@ section
 				color: $green
 	&-search
 		flex-basis: 25%
+		position: relative
 		form
 			flex-basis: 100%
 			display: flex
@@ -143,6 +153,32 @@ section
 				height: 40px
 				padding: 1rem
 				width: 100%
+		&-list
+			display: none
+			position: absolute
+			background: $white
+			flex-wrap: wrap
+			z-index: 10
+			border: 1px solid $gray
+			padding: .5rem
+			border-top: none
+			width: 100%
+			ul
+				list-style: none
+				margin: 0
+				padding: 0
+			li
+				flex-basis: 100%
+				a
+					padding: .5rem
+					display: flex
+			&.active
+				display: flex	
+			&-title
+				font-weight: bold
+				padding: .5rem
+				flex-basis: 100%
+				border-bottom: $border
 	&-panel
 		display: flex
 		flex-basis: 25%
@@ -288,6 +324,7 @@ section
 	display: none
 	position: absolute
 	top: 55px
+	left: 0
 	box-shadow: 5px 5px 1rem $gray
 	&-panel
 		position: relative
@@ -497,6 +534,7 @@ section
 .categories
 	display: flex
 	justify-content: space-between
+	flex-basis: 100%
 	&-item
 		flex-basis: calc(10% - 1rem)
 		display: flex
@@ -518,6 +556,9 @@ section
 			align-items: center
 			flex-basis: 100%
 			height: 90px
+			max-width: 90px
+			svg
+				max-height: 100%
 		&_title
 			display: flex
 			flex-basis: 100%
@@ -575,26 +616,31 @@ section
 .productPage
 	display: flex
 	flex-wrap: wrap
-	flex-basis: 100%
-	width: 100%
 	justify-content: space-between
+	max-width: 100%
+	flex-basis: 100%
 	&_gallery
 		flex-basis: calc(50% - 1rem)
 		max-width: calc(50% - 1rem)
 		display: flex
+		max-height: 580px
 		&_thumbs
 			display: flex
 			align-items: center
 			justify-content: center
-			flex-basis: 20%
+			width: 20%
 			background: $white
 			border: $border
 			padding: 1rem
 			margin-right: 1rem
+			&_item
+				max-height: 100px
+				margin: .5rem 0
+				padding: 1rem
+				overflow: hidden
 			img
 				-webkit-filter: grayscale(100%)
 				filter: grayscale(100%)
-				margin: 1rem 0
 			.slick-center
 				-webkit-filter: grayscale(0%)
 				filter: grayscale(0%)
@@ -615,9 +661,10 @@ section
 				align-items: center
 				justify-content: center
 				img
+					height: auto
+					margin: 0 auto
 					max-width: 100%
-			.slick-track
-				height: 100%
+					max-height: 500px
 	&-buyblock
 		flex-basis: 100%
 		&_range
@@ -642,7 +689,6 @@ section
 			display: flex
 			flex-wrap: wrap
 			align-items: center
-			height: 100%
 			padding: 1rem
 			&:first-child
 				margin: 0
@@ -656,7 +702,12 @@ section
 			margin: 1rem 0
 			.title
 				font-weight: bold
+			&_icon
+				flex-basis: 10%
+				svg
+					width: 100%
 			&_info
+				flex-basis: 90%
 				display: flex
 				justify-content: flex-end
 				align-items: center
@@ -682,7 +733,6 @@ section
 				margin-right: 1rem
 				overflow: hidden
 				height: 50px
-				min-width: 250px
 				padding: 0
 				&.ui-state-active
 					background: $orange
@@ -709,6 +759,12 @@ section
 			display: flex
 			flex-direction: column
 			min-height: 200px
+
+
+.slick-track
+	height: 100%
+	padding: 0 0 1rem 0
+
 .comments
 	&-list
 		&_item
@@ -741,6 +797,8 @@ section
 				flex-basis: 60%
 				padding: .5rem
 			&_stars
+				flex-basis: 60%
+				text-align: right
 				span
 					cursor: pointer
 					path
@@ -824,6 +882,8 @@ section
 		position: relative
 		width: 250px
 		height: 250px
+		img
+			max-height: 200px
 	&_gift
 		position: absolute
 		right: 1rem
@@ -922,7 +982,17 @@ section
 			background: $green
 			border-radius: 50%
 			margin-right: 1rem
-			color: $green
+	&-unavailable
+		padding: 0rem 1rem 1rem
+		display: flex
+		align-items: center
+		&::before
+			content: ''
+			width: 10px
+			height: 10px
+			background: $orange
+			border-radius: 50%
+			margin-right: 1rem
 .stars
 	display: flex
 	.star
@@ -935,6 +1005,7 @@ section
 			stroke: $lgreen
 
 .drawCategs
+	flex-basis: 100%
 	display: flex
 	flex-wrap: wrap
 	justify-content: space-between
@@ -965,13 +1036,13 @@ section
 
 .tagline
 	justify-content: space-between
-	flex-wrap: wrap
 	&-block
 		display: flex
 		//justify-content: space-between
 		flex-basis: 83.333%
 		width: 83.333%
 		flex-wrap: wrap
+		overflow: hidden
 		&_item
 			flex-basis: calc(20% - 1rem)
 			padding: 1rem
@@ -989,11 +1060,15 @@ section
 			background: $white
 			&:hover
 				background: $lgreen
-		&.open
+	&.open
+		flex-wrap: wrap
+		.tagline-block
 			flex-basis: 100%
+			display: block
 			width: 100%
-			.tagline-block_item
-				flex-basis: calc(16.666% - 1rem)
+			&_item
+				float: left
+				width: calc(100% / 6 - 1rem)
 			~.tagline_btn
 				flex-basis: 100%
 				height: 40px
@@ -1001,6 +1076,7 @@ section
 	&_btn
 		padding: 1rem
 		flex-basis: calc(16.666% - 1rem)
+		width: calc(16.666% - 1rem)
 		margin: .5rem
 		text-align: center
 		background: $dark
@@ -1013,6 +1089,9 @@ section
 		&:hover
 			cursor: pointer
 			background: $lgreen
+
+.owl-carousel .owl-item img
+	width: unset !important
 
 .vendorlink
 	flex-basis: calc(16.666% - 1rem)
@@ -1181,6 +1260,7 @@ section
 .reviewPage
 	display: flex
 	flex-wrap: wrap
+	flex-basis: 100%
 	&_control
 		background: $white
 		padding: 1rem
@@ -1371,6 +1451,7 @@ section
 	flex-wrap: wrap
 	&-sidebar
 		flex-basis: 16.666%
+		margin-top: .5rem
 	&-main
 		flex-basis: calc(83.33% - 1rem)
 		margin-left: 1rem
@@ -1379,39 +1460,82 @@ section
 		justify-content: space-between
 		align-items: center
 		padding: 1rem 0
-		height: 40px
 		flex-basis: 100%
 		&_btn
-			display: none
+			display: flex
 			align-items: center
 			background: $white
 			justify-content: space-evenly
 			border: $border
 			padding: 1rem
 			margin-right: 1rem
-			flex-basis: calc(25% - 1rem)
+			flex-basis: 20%
+			.icon
+				flex-basis: 10%
+				margin-right: 1rem
+			span
+				flex-basis: calc(90% - 1rem)
+				text-align: center
+		&_sort
+			display: none
 		&_block
 			flex-basis: 100%
+			height: 100%
+			border: $border
+			padding: 1rem
 			display: flex
 			justify-content: space-between
+			align-items: center
+			background: $white
+			&_title
+				font-weight: bold
+				display: none
 			&_sort
 				display: flex
 				align-items: center
-				flex-basis: 20%
-				justify-content: flex-end
-				b
-					flex-basis: 50%
-				select
-					margin-left: 1rem
-					background: none
-					border: none
-					color: $blue
+				justify-content: space-between
+				position: relative
+				&_title
 					font-weight: bold
-					-moz-appearance: none
-					-webkit-appearance: none
-					appearance: none
+					color: $blue
+				&_link
+					display: flex
+					align-items: center
+					justify-content: flex-end
+					margin-left: 1rem
+					&:hover
+						cursor: pointer
+						color: $orange
+					&_icon
+						margin-left: 1rem
+						transform: rotate(90deg)
+						display: flex
+						align-items: center
+						justify-content: center
+						max-width: 5px
+				&_list
+					display: none
+					position: absolute
+					z-index: 99
+					background: $white
+					top: 100%
+					right: 0
+					flex-direction: column
 					padding: 1rem
-					cursor: pointer
+					width: 100%
+					min-width: 250px
+					border: $border
+					box-shadow: 3px 3px 5px $gray
+					//overflow-y: scroll
+					&_item
+						padding: 1rem 0
+						&:hover
+							background: rgba($green,.2)
+							cursor: pointer
+						input
+							display: none
+					&.open
+						display: flex
 	&_filter
 		background: $white
 		padding: 0 1rem 1rem
@@ -1445,7 +1569,10 @@ section
 			display: flex
 			width: 100%
 			flex-basis: 100%
+			flex-wrap: wrap
 			border-bottom: $border
+			max-height: 300px
+			overflow-y: overlay
 			&:last-child
 				border: none
 		&_slider
@@ -1454,6 +1581,7 @@ section
 				height: 1rem
 				position: relative
 				border: $border
+				width: 100%
 				div
 					background: $orange
 					height: 100%
@@ -1484,10 +1612,12 @@ section
 							text-align: center
 							margin-left: 1rem
 							border: none
+							background-color: transparent
 		&_select
 			padding: 0
 			&_checkbox
 				display: flex
+				flex-basis: 100%
 				margin-bottom: .5rem
 				cursor: pointer
 				align-items: center
@@ -1510,9 +1640,14 @@ section
 		display: flex
 		flex-wrap: wrap
 		justify-content: space-between
+		margin-left: -1rem
 		.product
-			margin: 0 0 1rem
+			margin: 0.5rem 0 .5rem 1rem
 			flex-basis: calc(20% - 1rem)
+			align-content: flex-start
+		&::after
+			content: ''
+			flex: auto
 	&_btns
 		display: flex
 		flex-wrap: wrap
@@ -1579,7 +1714,7 @@ section
 		padding: 1rem
 		align-items: center
 		input[type="text"]
-				flex-basis: 80%
+				flex-basis: 74%
 				height: 40px
 				padding: 0 1rem
 
@@ -1593,46 +1728,48 @@ section
 			&:hover
 				cursor: pointer
 				background: $orange
-		span
+		>span
 			flex-basis: 90%
 
-		input[type="checkbox"]:checked + label::before
-			content: url("../svg/checked.svg")
-			line-height: 1rem
+		
 
 		#subscribe
 			display: none
 
-		label
+		&_check
 			flex-basis: 10%
 			cursor: default
 			font-weight: 400
 			line-height: 30px
 			padding: 10px 0
 			vertical-align: middle
-
-			&::before
-				content: " "
-				display: flex
-				align-items: center
-				justify-content: center
-				margin-right: 15px
-				position: relative
-				text-align: center
-				text-indent: 0px
-				width: 40px
-				height: 40px
-				background: $white
-				border: $border
-
+			cursor: pointer
+			span
+				&::before
+					content: " "
+					display: flex
+					align-items: center
+					justify-content: center
+					margin-right: 15px
+					position: relative
+					text-align: center
+					text-indent: 0px
+					width: 40px
+					height: 40px
+					background: $white
+					border: $border
+			input[type="checkbox"]:checked + span::before
+				content: url("../svg/checked.svg")
+				line-height: 1rem
 footer
 	margin-top: 1rem !important
 	background: $black
 .footer
 	flex-wrap: wrap
 	color: $white
+	justify-content: space-between
 	&-block
-		flex-basis: 25%
+		flex-basis: calc(25% - 2rem)
 		padding: 1rem
 		&_title
 			font-weight: bold
@@ -1649,6 +1786,7 @@ footer
 			&:hover
 				color: $yellow
 	&-bottom
+		flex-basis: 100%
 		border-top: $border
 		padding: 1rem 0 0
 		display: flex
@@ -1753,17 +1891,23 @@ footer
 		text-align: center
 	img
 		width: auto !important
+	&-unavaible
+		background: $gray
+		color: $white
+		width: 100%
+		&:hover
+			pointer-events: none
 
 // Buttons end
 
 .totop
-	position: absolute
+	position: fixed
 	right: 1rem
 	bottom: 0
-	height: 100%
 	display: flex
 	justify-content: center
 	align-items: flex-end
+	z-index: 99
 	&_btn
 		position: sticky
 		padding: 1rem
@@ -2163,8 +2307,6 @@ footer
 				background: darken($green,10)
 				text-decoration: none
 
-.owl-item img
-	width: initial !important
 .comparePage
 	position: relative
 	flex-wrap: wrap
@@ -2312,12 +2454,14 @@ footer
 		&:hover
 			background: $orange
 			text-decoration: none
+
+
 			
-
-
 @media screen and (max-width: 1366px)
 	body
 		font-size: 12px
+	main
+		padding: 0 1rem
 	.mhide
 		display: none
 	.header
@@ -2326,6 +2470,9 @@ footer
 			flex-basis: 20%
 			&:first-child
 				flex-basis: 15%
+			&_info
+				strong
+					font-size: 1.4rem
 		&-search
 			flex-basis: 20%
 		&-panel
@@ -2360,9 +2507,16 @@ footer
 									column-count: 2
 							&_baner
 								display: none
-
+	.prodcat_goods .product
+		flex-basis: calc(25% - 1rem)
 @media screen and (max-width: 1024px)
-
+	.header
+		&-block
+			.icon
+				flex-basis: 10%
+			&_info
+				flex-basis: 90%
+	
 	.drawCategs
 		&-item
 			flex-basis: calc(25% - 1rem)
@@ -2370,9 +2524,9 @@ footer
 		&-block
 			flex-basis: 75%
 			width: 75%
-			&.open
-				.tagline-block_item
-					flex-basis: calc(25% - 1rem)
+		&.open
+			.tagline-block_item
+				width: calc(25% - 1rem)
 		&_btn
 			flex-basis: calc(25% - 1rem)
 
@@ -2454,25 +2608,29 @@ footer
 			&_btn
 				display: flex
 				font-weight: bold
+				flex-basis: 25%
+				justify-content: space-evenly
+				span
+					margin-left: 1rem
 			&_block
 				flex-basis: 75%
-	
+				justify-content: space-between
+
 
 
 
 
 @media screen and (max-width: 820px)
-
 	.header
 		padding: 1rem
 		&-block
-			flex-basis: 25%
+			flex-basis: calc(25% + .5rem)
 			&:first-child
 				flex-basis: 30%
 		&-search
 			flex-basis: 70%
 		&-panel
-			flex-basis: 50%
+			flex-basis: calc(50% - 1rem)
 			margin-top: 1rem
 	.menuLine
 		&-catalogButton, &-stockButton, &-menu
@@ -2484,10 +2642,10 @@ footer
 			button
 				flex-basis: 100%
 				margin: 1rem 0
-			span
+			>span
 				flex-basis: 80%
 	.prodcat_goods .product, .bookmarksPage_goods .product
-		flex-basis: calc(33.33% - 1rem)
+		flex-basis: calc(50% - 1rem)
 
 	.orderPage
 		flex-wrap: wrap
@@ -2495,8 +2653,41 @@ footer
 			flex-basis: 100%
 		&_main
 			padding: 1rem
+	.cityselect
+		max-width: 100vw
+		max-height: 100vh
+		overflow-y: scroll
 
-@media screen and (max-width: 420px)
+	.navbar
+		&_title
+			font-size: 24px
+
+
+	.prodcat_top_block
+		&_title
+			display: block
+		&_sort
+			&_title
+				display: none
+	.productPage
+		flex-wrap: wrap
+		&_gallery
+			flex-basis: 100%
+			max-width: 100%
+			margin-bottom: 1rem
+		&_info
+			flex-basis: 100%
+		&_tabs > ul > li a b
+			display: none
+	.drawCategs
+		&-item
+			&_title
+				font-size: 12px
+	.breadcrumbs
+		overflow-x: overlay
+		li
+			white-space: nowrap
+@media screen and (max-width: 640px)
 	.infoline
 		text-align: center
 	.header
@@ -2552,11 +2743,9 @@ footer
 	.tagline
 		&-block, &_btn
 			flex-basis: 100%
-		&-block
-			&.open .tagline-block_item
-				flex-basis: calc(50% - 1rem)
-				padding: 1rem 0.2rem
-				height: initial
+		&.open .tagline-block_item
+			width: calc(50% - 1rem)
+			padding: 1rem 0.2rem
 	.drawCategs
 		&-item
 			flex-basis: calc(50% - 1rem)
@@ -2588,7 +2777,8 @@ footer
 				flex-basis: 100%
 				text-align: center
 				padding: 0
-			
+	.xhide
+		display: none		
 
 
 	.fxww
@@ -2637,16 +2827,23 @@ footer
 		&_form
 			&_block
 				flex-basis: 100%
-	.prodcat_goods .product
-		flex-basis: 100%
-		margin: 1rem 0
+	.prodcat_goods
+		margin-left: 0
+		&.product
+			flex-basis: 100%
+			margin: 1rem 0
+
+
+	.prodcat
+		&_top
+			flex-wrap: wrap
 
 	.bookmarksPage_goods .product
 		flex-basis: 100%
 
-
-	.xhide
+	.prodcat_top_block_sort b
 		display: none
+	
 
 	.cartPage
 		&-header, &-body, &-footer
@@ -2690,3 +2887,65 @@ footer
 			input[type="text"]
 				width: 100%
 				margin: 0
+	.productPage
+		&_info
+			flex-wrap: wrap
+			&_block
+				flex-basis: 100%
+				height: unset
+
+
+
+@media screen and (max-width: 420px)
+	.navbar_title
+		font-size: 24px
+	.cityselect
+		&-container
+			height: auto
+		&-block
+			width: 100%
+			&_list a
+				margin: .5rem 0
+				&:first-child
+					margin-top: 0
+	.header-block
+		flex-basis: 50%
+		justify-content: center
+		&.city
+			flex-basis: 40%
+	.prodcat
+		&_top
+			&_sort
+				display: block
+				flex-basis: 10%
+				padding: 1rem
+				background: $white
+				border: $border
+				height: 40px
+				&.active
+					background: $yellow
+			&_block
+				flex-basis: 100%
+				flex-wrap: wrap
+				height: auto
+				margin-top: 1rem
+				display: none
+				&_title
+					display: none
+				&_sort
+					flex-basis: 100%
+					padding: 1rem 0
+					&_title
+						display: block
+			&_btn
+				flex-basis: calc(90% - 1rem)
+				height: 40px
+	.prodcat_goods .product, .bookmarksPage_goods .product
+		flex-basis: 100%
+		margin: 0
+		margin-bottom: 1rem
+
+
+
+
+
