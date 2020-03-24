@@ -73,11 +73,13 @@
                     <div class="header-panel_btn">
                         <img src="assets/svg/compare.svg" alt="login" class="icon">
                         <p>Сравнения</p>
+                        <span>0</span>
                         <a href="#"></a>
                     </div>
                     <div class="header-panel_btn">
                         <img src="assets/svg/bookmarks.svg" alt="login" class="icon">
                         <p>Закладки</p>
+                        <span>0</span>
                         <a href="#"></a>
                     </div>
                     <div class="header-panel_btn">
@@ -917,10 +919,10 @@
             </section>
             <section class="wrap">
                 <nav class="categories">
-                    <div class="categories-item">
+                    <a href="#" class="categories-item">
                         <div class="categories-item_icon"><img src="assets/svg/cat_stihl.svg" alt="" class="icon"></div>
                         <div class="categories-item_title">Продукция STIHL и Viking</div>
-                    </div>
+                    </a>
                     <div class="categories-item">
                         <div class="categories-item_icon"><img src="assets/svg/cat_snowtool.svg" alt="" class="icon"></div>
                         <div class="categories-item_title">Снегоуборочная техника</div>
@@ -2802,6 +2804,10 @@
                         </div>
                     </div>
                 </div>
+                <form action="/" class="cityselect__form">
+                    <input type="text" placeholder="Не нашли свой город? Попробуйте найти тут.">
+                    <button class="btn">Найти</button>
+                </form>
             </div>
             <div class="popup_overlay"></div>
         </div>
