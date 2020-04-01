@@ -487,6 +487,8 @@ footer { margin-top: 1rem !important; background: #222; }
 .btn img { width: auto !important; }
 .btn-unavaible { background: #bbb; color: #fff; width: 100%; }
 .btn-unavaible:hover { pointer-events: none; }
+.btn--reset { background: #444 !important; }
+.btn--reset:hover { background: #ff3300 !important; }
 
 .totop { position: fixed; right: 1rem; bottom: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end; z-index: 99; }
 .totop_btn { position: -webkit-sticky; position: sticky; padding: 1rem; display: none; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; background: #fff; border: 1px solid #ddd; font-weight: bold; width: 40px; height: 40px; margin: 1rem; right: 0; bottom: 1rem; z-index: 2; opacity: 0.5; }
@@ -523,9 +525,12 @@ footer { margin-top: 1rem !important; background: #222; }
 .cityselect-block_list { -ms-flex-preferred-size: 90%; flex-basis: 90%; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 .cityselect-block_list a { -ms-flex-preferred-size: 100%; flex-basis: 100%; }
 .cityselect-block_list a.active { font-weight: bold; color: #444; pointer-events: none; }
-.cityselect__form { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-preferred-size: 100%; flex-basis: 100%; }
+.cityselect-block--row { width: 100%; }
+.cityselect-block--row .cityselect-block_lt { width: 20%; }
+.cityselect-block--row .cityselect-block_list { width: 80%; }
+.cityselect__form { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-preferred-size: 100%; flex-basis: 100%; margin: 1rem 0; }
 .cityselect__form input { -ms-flex-preferred-size: 80%; flex-basis: 80%; padding: 1rem; }
-.cityselect__form button { -ms-flex-preferred-size: 20%; flex-basis: 20%; background: #59B400; color: #fff; font-weight: bold; }
+.cityselect__form button { -ms-flex-preferred-size: 10%; flex-basis: 10%; background: #59B400; color: #fff; font-weight: bold; }
 
 .orderPage { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-preferred-size: 100%; flex-basis: 100%; }
 .orderPage_row { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; background: #fff; border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; }

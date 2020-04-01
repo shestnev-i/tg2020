@@ -2535,6 +2535,23 @@
                 </div>
             </div>
         </footer>
+        <div class="popup" data-popup="checkbuy">
+            <div class="popup-window">
+                <div class="popup-header">
+                    <div class="popup_title">Задать вопрос</div>
+                    <div class="popup_close"><img src="assets/svg/close.svg" alt="close" class="icon"></div>
+                </div>
+                <form action="" class="popup_form">
+                    <label><b>ФИО: <span class="popup_req">*</span></b> <input type="text"></label>
+                    <label><b>Телефон: <span class="popup_req">*</span></b> <input type="text"></label>
+                    <label><b>E-mail: <span class="popup_req">*</span></b> <input type="text"></label>
+                    <label><b>Вопрос: <span class="popup_req">*</span></b> <textarea name="" cols="30"
+                            rows="10"></textarea></label>
+                    <button class="popup_btn">Спросить</button>
+                </form>
+            </div>
+            <div class="popup_overlay"></div>
+        </div>
         <div class="popup" data-popup="questions">
             <div class="popup-window">
                 <div class="popup-header">
@@ -2557,8 +2574,13 @@
                     <div class="popup_title">Выберите ваш город</div>
                     <div class="popup_close"><img src="assets/svg/close.svg" alt="close" class="icon"></div>
                 </div>
+                <form action="/" class="cityselect__form">
+                    <input type="text" placeholder="Не нашли свой город? Попробуйте найти тут.">
+                    <button class="btn">Найти</button>
+                    <button class="btn btn--reset">Сбросить</button>
+                </form>
                 <div class="cityselect-container">
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">А</div>
                         <div class="cityselect-block_list">
                             <a href="">Адлер</a>
@@ -2566,7 +2588,7 @@
                             <a href="">Архангельск</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Б</div>
                         <div class="cityselect-block_list">
                             <a href="">Балашиха</a>
@@ -2576,7 +2598,7 @@
                             <a href="">Брянск</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">В</div>
                         <div class="cityselect-block_list">
                             <a href="">Великий Новгород</a>
@@ -2591,13 +2613,13 @@
                             <a href="">Всеволожск</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Г</div>
                         <div class="cityselect-block_list">
                             <a href="">Гатчина</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Д</div>
                         <div class="cityselect-block_list">
                             <a href="">Дзержинск</a>
@@ -2607,39 +2629,39 @@
                             <a href="">Дубна</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Е</div>
                         <div class="cityselect-block_list">
                             <a href="">Екатеринбург</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Ж</div>
                         <div class="cityselect-block_list">
                             <a href="">Железнодорожный</a>
                             <a href="">Жуковский</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">З</div>
                         <div class="cityselect-block_list">
                             <a href="">Зеленоград</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">И</div>
                         <div class="cityselect-block_list">
                             <a href="">Иваново</a>
                             <a href="">Ижевск</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Й</div>
                         <div class="cityselect-block_list">
                             <a href="">Йошкар-Ола</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">К</div>
                         <div class="cityselect-block_list">
                             <a href="">Казань</a>
@@ -2658,7 +2680,7 @@
                             <a href="">Курск</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Л</div>
                         <div class="cityselect-block_list">
                             <a href="">Липецк</a>
@@ -2667,7 +2689,7 @@
                             <a href="">Люберцы</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">М</div>
                         <div class="cityselect-block_list">
                             <a href="" class="active">Москва</a>
@@ -2676,7 +2698,7 @@
                             <a href="">Мытищи</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Н</div>
                         <div class="cityselect-block_list">
                             <a href="">Набережные Челны</a>
@@ -2692,7 +2714,7 @@
                             <a href="">Ногинск</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">О</div>
                         <div class="cityselect-block_list">
                             <a href="">Обнинск</a>
@@ -2703,7 +2725,7 @@
                             <a href="">Орехово-Зуево</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">П</div>
                         <div class="cityselect-block_list">
                             <a href="">Пенза</a>
@@ -2715,7 +2737,7 @@
                             <a href="">Пушкино</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Р</div>
                         <div class="cityselect-block_list">
                             <a href="">Раменское</a>
@@ -2724,7 +2746,7 @@
                             <a href="">Рязань</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">С</div>
                         <div class="cityselect-block_list">
                             <a href="">Самара</a>
@@ -2742,7 +2764,7 @@
                             <a href="">Стерлитамак</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Т</div>
                         <div class="cityselect-block_list">
                             <a href="">Таганрог</a>
@@ -2755,26 +2777,26 @@
                             <a href="">Тюмень</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">У</div>
                         <div class="cityselect-block_list">
                             <a href="">Ульяновск</a>
                             <a href="">Уфа</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Ф</div>
                         <div class="cityselect-block_list">
                             <a href="">Фрязино</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Х</div>
                         <div class="cityselect-block_list">
                             <a href="">Химки</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Ч</div>
                         <div class="cityselect-block_list">
                             <a href="">Чебоксары</a>
@@ -2782,7 +2804,7 @@
                             <a href="">Череповец</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Щ</div>
                         <div class="cityselect-block_list">
                             <a href="">Щёкино</a>
@@ -2790,24 +2812,21 @@
                             <a href="">Щербинка</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Э</div>
                         <div class="cityselect-block_list">
                             <a href="">Электросталь</a>
                             <a href="">Энгельс</a>
                         </div>
                     </div>
-                    <div class="cityselect-block">
+                    <div class="cityselect-block cityselect-block--row">
                         <div class="cityselect-block_lt">Я</div>
                         <div class="cityselect-block_list">
                             <a href="">Ярославль</a>
                         </div>
                     </div>
                 </div>
-                <form action="/" class="cityselect__form">
-                    <input type="text" placeholder="Не нашли свой город? Попробуйте найти тут.">
-                    <button class="btn">Найти</button>
-                </form>
+                
             </div>
             <div class="popup_overlay"></div>
         </div>
