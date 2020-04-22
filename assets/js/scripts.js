@@ -44,11 +44,11 @@ $(window).resize(function(){
 });
 
 
-$('.header-search form').find('input').on('keyup click',function(){
-    $(this).val().length > 2 ? $('.header-search-list').addClass('active') : $('.header-search-list').removeClass('active');
+$('.header-item__form').find('input').on('keyup click',function(){
+    $(this).val().length > 2 ? $('.header-item__list').addClass('active') : $('.header-item__list').removeClass('active');
 })
 $(document).mouseup(function (e){
-    var el = $('.header-search-list');
+    var el = $('.header-item__list');
     if (!el.is(e.target) && el.has(e.target).length === 0) { 
         el.removeClass('active');
     }
@@ -103,38 +103,31 @@ $('.contactPage_block.gallery').slick({
     autoplaySpeed: 2000
 });
     var sliders = $('.carousel-products');
-    var loop;
     $.each(sliders, function(){
-        var srlen = $(this).find('.product').length;
-        var vdlen = $(this).find('.vendorlink').length;
-        if (srlen > 6 || vdlen > 6 ){ loop = true;}
-        else { loop = false; }
         $(this).owlCarousel({
-            loop: loop,
-            margin: 5,
+            loop: true,
+            margin: 10,
             nav: false,
             dots: false,
             lazyLoad: true,
             autoplay: true,
             autoplayTimeout: 5000,
             smartSpeed: 1000,
+            autoplayHoverPause: true,
             responsiveClass: true,
+            responsiveBaseElement: ".carousel-products",
             responsive: {
-                0:{
-                    items:1,
-                    loop: srlen > 2 || vdlen > 2 ? true : false
+                0 : {
+                    items: 1.27
                 },
-                420:{
-                    items:2
+                640 : {
+                    items: 3
                 },
-                800:{
-                    items:3
+                1000 : {
+                    items: 4
                 },
-                1000:{
-                    items:4
-                },
-                1370:{
-                    items:6
+                1370 : {
+                    items: 6
                 }
             }
         })
@@ -173,7 +166,6 @@ $('.tagline-block').owlCarousel(tagline);
         $('.mainBanner_slider').slick('slickNext');
     })
 
-
     $('.navbar-ctrl_prev').on('click',function(){
         $(this).closest('.navbar').next('.carousel-products').trigger('prev.owl.carousel');
     })
@@ -192,7 +184,6 @@ $('.tagline-block').owlCarousel(tagline);
             $(this).closest('.tagline').toggleClass('open');
             $(this).text('Скрыть');   
         }
-        
      })
 //carousel end
 
@@ -439,7 +430,7 @@ else{
 //reviewTabs end
 
 
-if($wd < 820){
+if($wd < 1024){
     $('.catalog-panel-list_item').on('click',function(){
         $(this).find('.catalog-panel-list_item_block').slideToggle();
         $(this).find('.catalog-panel-list_item_link').toggleClass('linked');
@@ -448,12 +439,6 @@ if($wd < 820){
     })
 }
 
-
-if ($(window).width() <= 1024 ){
-    $('.menuLine-menu_more').on('click', function(){
-        $('.menuLine-menu_sub').toggleClass('open');
-    })
-}
 $(document).mouseup(function (e){
     var el = $('.menuLine-menu li');
     if (!el.is(e.target) && el.has(e.target).length === 0) { 
@@ -525,6 +510,29 @@ $('.prodcat_top_sort').on('click',function(){
 })
 
 //topsort end
+
+//opportunity tabs
+    $('.opportunity__item').on('click',function () {
+        var vacid = $(this).attr('data-item');
+        $(this).addClass('selected');
+        $('.opportunity__item').not(this).removeClass('selected');
+        $('.opportunity__tab').removeClass('selected');
+        $('.opportunity__tab[data-info="'+ vacid +'"]').addClass('selected');
+        if ($(window).width() <= 640){
+            var wel = ($('.opportunity__tab[data-info="' + vacid + '"]').offset().top) - 20;
+            $('body,html').animate({ scrollTop: wel }, 500);
+        }
+    })
+//opportunity_end
+
+//open mobileCatalog
+
+    $('.btn--mcat').on('click', function(){
+        $('.line-dark').toggleClass('active');
+    })
+
+//open mobileCatalog end
+
 
 
 
