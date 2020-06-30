@@ -166,7 +166,7 @@ var tagline = {
     loop: true,
     nav: false,
     dots: false,
-    margin: 5,
+    margin: 10,
     autoplay: true,
     autoplayTimeout: 5000,
     smartSpeed: 1000,
@@ -203,10 +203,12 @@ $('.tagline-block').owlCarousel(tagline);
     })
 
      $('.tagline_btn').on('click',function(){
+         let tagbtn = $(this).attr('data-text');
+         if(!tagbtn){tagbtn="Все категории"}
         if($(this).closest('.tagline').hasClass('open')){
             $(this).closest('.tagline').toggleClass('open');
             $(this).closest('.tagline').find('.tagline-block').owlCarousel(tagline);
-            $(this).text('Все категории');
+            $(this).text(tagbtn);
         }
         else{
             $(this).closest('.tagline').find('.tagline-block').trigger('destroy.owl.carousel');
@@ -340,6 +342,23 @@ $('.btn_hide').on('click',function(){
                     enabled: true,
                     duration: 300, // don't foget to change the duration also in CSS
                     opener: function(element) {
+                        return element.find('img');
+                    }
+                }
+            });
+            $('.blogpage-product__image').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                removalDelay: 300,
+                image: {
+                    verticalFit: true,
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300, // don't foget to change the duration also in CSS
+                    opener: function (element) {
                         return element.find('img');
                     }
                 }
@@ -570,6 +589,30 @@ $('.prodcat_top_sort').on('click',function(){
 
 //open mobileCatalog end
 
+
+//toc possition
+    function tocPoss(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+            rect.top <= 0
+        );
+    }
+
+    $(window).scroll(function () {
+        $(".blogpage-body__section").each(function (index, element) {
+            if (tocPoss(element)) {
+                let toc_id = $(this).attr('id');
+                $(".toc__item a").each(function () {
+                    let toc_link = $(this).attr('href').replace('#','');
+                    if (toc_link == toc_id){
+                        $(this).addClass('toc__item--view');
+                        $(".toc__item a").not(this).removeClass('toc__item--view');
+                    }
+                })
+            }
+        })
+    })
+//toc possition end
 
 
 
