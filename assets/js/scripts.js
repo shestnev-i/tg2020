@@ -32,11 +32,11 @@ $(document).ready(function() {
         })
     })
 function catWrap() {
-    var wrapW = $('.wrap').width();
+    var wrapW = $('.catalog').width();
     var pnW;
     wrapW <= 1024 ? pnW=30 : pnW=20;
     var catW = wrapW - (wrapW / 100 * pnW) - 2;
-    $('.catalog-panel-list_item_block').width(Math.floor(catW));
+    $('.menu-panel').width(Math.floor(catW));
 }
 catWrap();
 $(window).resize(function(){
@@ -54,23 +54,52 @@ $(document).mouseup(function (e){
     }
 });
 
+
+//burger
+
+    $('.burger').click(function () {
+        $(this).toggleClass('active');
+    });
+
+//burger end
+
+
+
+//mobile catalog
+    $('.js-menu-item').on('click',function(e){
+        if ($(this).next().hasClass('js-submenu') && $(window).width()<= 820){
+            e.preventDefault();
+            $(this).next().addClass('active');  
+        }
+    })
+
+    $('.menu-panel-header__back').on('click',function(){
+        $(this).closest('.js-submenu').removeClass('active');
+    })
+//mobile catalog end
+
 //catalog start
 $('.menuLine-catalogButton').click(function() {
         if ($('.catalog').is(':hidden')) {
             $('.catalog').slideDown('fast');
             $(this).addClass('active');
             $('.menuLine-catalogButton_icon').addClass('close');
+            $('.catalog-overlay').fadeIn();
         } else {
             $('.catalog').slideUp('fast');
             $(this).removeClass('active');
             $('.menuLine-catalogButton_icon').removeClass('close');
+            $('.catalog-overlay').fadeOut();
         }
     });
 $(document).mouseup(function (e){
-    var el = $('.catalog');
-    if (!el.is(e.target) && el.has(e.target).length === 0) { 
-        el.slideUp();
-        $('.menuLine-catalogButton_icon').removeClass('close');
+    if ($(window).width() >= 820){
+        var el = $('.catalog');
+        if (!el.is(e.target) && el.has(e.target).length === 0) { 
+            el.slideUp();
+            $('.menuLine-catalogButton_icon').removeClass('close');
+            $('.catalog-overlay').fadeOut();
+        }
     }
 });
 //catalog end
@@ -137,7 +166,7 @@ var tagline = {
     loop: true,
     nav: false,
     dots: false,
-    margin: 5,
+    margin: 10,
     autoplay: true,
     autoplayTimeout: 5000,
     smartSpeed: 1000,
@@ -174,10 +203,12 @@ $('.tagline-block').owlCarousel(tagline);
     })
 
      $('.tagline_btn').on('click',function(){
+         let tagbtn = $(this).attr('data-text');
+         if(!tagbtn){tagbtn="Все категории"}
         if($(this).closest('.tagline').hasClass('open')){
             $(this).closest('.tagline').toggleClass('open');
             $(this).closest('.tagline').find('.tagline-block').owlCarousel(tagline);
-            $(this).text('Все категории');
+            $(this).text(tagbtn);
         }
         else{
             $(this).closest('.tagline').find('.tagline-block').trigger('destroy.owl.carousel');
@@ -205,8 +236,11 @@ $('.tagline-block').owlCarousel(tagline);
     function inViewport($el) {
         var elH = $el.outerHeight(),
             H = $(window).height(),
-            r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
-        return Math.max(0, t>0? Math.min(elH, H-t) : (b<H?b:H));
+            r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom,
+            ww;
+        $(window).width()< 820 ? ww = 70 : ww = 0;
+            
+        return Math.max(ww, t>0? Math.min(elH, H-t) : (b<H?b:H));
     }
 
     $(window).on("scroll resize", function(){
@@ -308,6 +342,23 @@ $('.btn_hide').on('click',function(){
                     enabled: true,
                     duration: 300, // don't foget to change the duration also in CSS
                     opener: function(element) {
+                        return element.find('img');
+                    }
+                }
+            });
+            $('.blogpage-product__image').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                closeOnContentClick: false,
+                closeBtnInside: false,
+                removalDelay: 300,
+                image: {
+                    verticalFit: true,
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300, // don't foget to change the duration also in CSS
+                    opener: function (element) {
                         return element.find('img');
                     }
                 }
@@ -483,6 +534,11 @@ $('.comments-form-item_stars input').on('change',function(){
         $('.prodcat-overlay').fadeOut();
     })
 
+    $('.prodcat-sidebar__close').on('click', function () {
+        $('.prodcat-sidebar').removeClass('open');
+        $('.prodcat-overlay').fadeOut();
+    })
+
 //prodcat_btn end
 
 
@@ -528,11 +584,35 @@ $('.prodcat_top_sort').on('click',function(){
 //open mobileCatalog
 
     $('.btn--mcat').on('click', function(){
-        $('.line-dark').toggleClass('active');
+        $('.js-aside').toggleClass('active');
     })
 
 //open mobileCatalog end
 
+
+//toc possition
+    function tocPoss(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+            rect.top <= 0
+        );
+    }
+
+    $(window).scroll(function () {
+        $(".blogpage-body__section").each(function (index, element) {
+            if (tocPoss(element)) {
+                let toc_id = $(this).attr('id');
+                $(".toc__item a").each(function () {
+                    let toc_link = $(this).attr('href').replace('#','');
+                    if (toc_link == toc_id){
+                        $(this).addClass('toc__item--view');
+                        $(".toc__item a").not(this).removeClass('toc__item--view');
+                    }
+                })
+            }
+        })
+    })
+//toc possition end
 
 
 
